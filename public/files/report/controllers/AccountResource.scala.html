@@ -1,0 +1,818 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          controllers/AccountResource.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier;'>1 <span style=''>package controllers
+</span>2 <span style=''>
+</span>3 <span style=''>import javax.inject.{Inject, Provider}
+</span>4 <span style=''>
+</span>5 <span style=''>import play.api.MarkerContext
+</span>6 <span style=''>
+</span>7 <span style=''>import scala.concurrent.{ExecutionContext, Future}
+</span>8 <span style=''>import play.api.libs.json._
+</span>9 <span style=''>
+</span>10 <span style=''>/**
+</span>11 <span style=''>  * DTO for displaying Account information.
+</span>12 <span style=''>  */
+</span>13 <span style=''>case class AccountResource(status: String, message: String, code: Int)
+</span>14 <span style=''>
+</span>15 <span style=''>object AccountResource {
+</span>16 <span style=''>
+</span>17 <span style=''>  /**
+</span>18 <span style=''>    * Mapping to write a AccountResource out as a JSON value.
+</span>19 <span style=''>    */
+</span>20 <span style=''>  implicit val implicitWrites = </span><span style='background: #AEF1AE'>new</span><span style=''> Writes[AccountResource] {
+</span>21 <span style=''>    def writes(resource: AccountResource): JsValue = {
+</span>22 <span style=''>      </span><span style='background: #AEF1AE'>Json.obj(
+</span>23 <span style=''></span><span style='background: #AEF1AE'>        &quot;status&quot; -&gt; resource.status,
+</span>24 <span style=''></span><span style='background: #AEF1AE'>        &quot;message&quot; -&gt; resource.message,
+</span>25 <span style=''></span><span style='background: #AEF1AE'>        &quot;code&quot; -&gt; resource.code
+</span>26 <span style=''></span><span style='background: #AEF1AE'>      )</span><span style=''>
+</span>27 <span style=''>    }
+</span>28 <span style=''>  }
+</span>29 <span style=''>}
+</span>30 <span style=''>
+</span>31 <span style=''>/**
+</span>32 <span style=''>  * Controls access to the backend data, returning [[AccountResource]]
+</span>33 <span style=''>  */
+</span>34 <span style=''>class AccountResourceHandler @Inject()(
+</span>35 <span style=''>    routerProvider: Provider[AccountRouter],
+</span>36 <span style=''>    storage: AccountStore)(implicit ec: ExecutionContext) {
+</span>37 <span style=''>
+</span>38 <span style=''>  def deposit(accountInput: AccountFormInput)(
+</span>39 <span style=''>      implicit mc: MarkerContext): Future[AccountResource] = {
+</span>40 <span style=''>    </span><span style='background: #AEF1AE'>storage.deposit(AccountAmount(accountInput.amount)).map { data =&gt;
+</span>41 <span style=''></span><span style='background: #AEF1AE'>      createAccountResource(data)
+</span>42 <span style=''></span><span style='background: #AEF1AE'>    }</span><span style=''>
+</span>43 <span style=''>  }
+</span>44 <span style=''>
+</span>45 <span style=''>  def withdraw(accountInput: AccountFormInput)(
+</span>46 <span style=''>      implicit mc: MarkerContext): Future[AccountResource] = {
+</span>47 <span style=''>    </span><span style='background: #AEF1AE'>storage.withdraw(AccountAmount(accountInput.amount)).map { data =&gt;
+</span>48 <span style=''></span><span style='background: #AEF1AE'>      createAccountResource(data)
+</span>49 <span style=''></span><span style='background: #AEF1AE'>    }</span><span style=''>
+</span>50 <span style=''>  }
+</span>51 <span style=''>
+</span>52 <span style=''>  def balance()(implicit mc: MarkerContext): Future[AccountResource] = {
+</span>53 <span style=''>    </span><span style='background: #AEF1AE'>storage.balance().map { data =&gt;
+</span>54 <span style=''></span><span style='background: #AEF1AE'>      createAccountResource(data)
+</span>55 <span style=''></span><span style='background: #AEF1AE'>    }</span><span style=''>
+</span>56 <span style=''>
+</span>57 <span style=''>  }
+</span>58 <span style=''>
+</span>59 <span style=''>  private def createAccountResource(res: Response): AccountResource = {
+</span>60 <span style=''>    </span><span style='background: #AEF1AE'>AccountResource(res.status, res.message, res.code)</span><span style=''>
+</span>61 <span style=''>  }
+</span>62 <span style=''>
+</span>63 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          20
+        </td>
+        <td>
+          176
+        </td>
+        <td>
+          430
+          -
+          433
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountResource.$anon.&lt;init&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          new $anon()
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          175
+        </td>
+        <td>
+          521
+          -
+          646
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.api.libs.json.Json.obj
+        </td>
+        <td style="background: #AEF1AE">
+          play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](resource.status)(json.this.Writes.StringWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](resource.message)(json.this.Writes.StringWrites)), scala.Predef.ArrowAssoc[String](&quot;code&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](resource.code)(json.this.Writes.IntWrites)))
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          164
+        </td>
+        <td>
+          539
+          -
+          566
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.ArrowAssoc.-&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](resource.status)(json.this.Writes.StringWrites))
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          160
+        </td>
+        <td>
+          539
+          -
+          547
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;status&quot;
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          163
+        </td>
+        <td>
+          551
+          -
+          566
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.libs.json.Json.toJsFieldJsValueWrapper
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Json.toJsFieldJsValueWrapper[String](resource.status)(json.this.Writes.StringWrites)
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          162
+        </td>
+        <td>
+          560
+          -
+          560
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.libs.json.DefaultWrites.StringWrites
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Writes.StringWrites
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          161
+        </td>
+        <td>
+          551
+          -
+          566
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountResource.status
+        </td>
+        <td style="background: #AEF1AE">
+          resource.status
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          167
+        </td>
+        <td>
+          598
+          -
+          598
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.libs.json.DefaultWrites.StringWrites
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Writes.StringWrites
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          166
+        </td>
+        <td>
+          589
+          -
+          605
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountResource.message
+        </td>
+        <td style="background: #AEF1AE">
+          resource.message
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          169
+        </td>
+        <td>
+          576
+          -
+          605
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.ArrowAssoc.-&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](resource.message)(json.this.Writes.StringWrites))
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          165
+        </td>
+        <td>
+          576
+          -
+          585
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;message&quot;
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          168
+        </td>
+        <td>
+          589
+          -
+          605
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.libs.json.Json.toJsFieldJsValueWrapper
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Json.toJsFieldJsValueWrapper[String](resource.message)(json.this.Writes.StringWrites)
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          173
+        </td>
+        <td>
+          625
+          -
+          638
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.libs.json.Json.toJsFieldJsValueWrapper
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Json.toJsFieldJsValueWrapper[Int](resource.code)(json.this.Writes.IntWrites)
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          172
+        </td>
+        <td>
+          634
+          -
+          634
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.libs.json.DefaultWrites.IntWrites
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Writes.IntWrites
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          174
+        </td>
+        <td>
+          615
+          -
+          638
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.ArrowAssoc.-&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.ArrowAssoc[String](&quot;code&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](resource.code)(json.this.Writes.IntWrites))
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          171
+        </td>
+        <td>
+          625
+          -
+          638
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountResource.code
+        </td>
+        <td style="background: #AEF1AE">
+          resource.code
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          170
+        </td>
+        <td>
+          615
+          -
+          621
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;code&quot;
+        </td>
+      </tr><tr>
+        <td>
+          40
+        </td>
+        <td>
+          178
+        </td>
+        <td>
+          1016
+          -
+          1050
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountAmount.apply
+        </td>
+        <td style="background: #AEF1AE">
+          AccountAmount.apply(accountInput.amount)
+        </td>
+      </tr><tr>
+        <td>
+          40
+        </td>
+        <td>
+          181
+        </td>
+        <td>
+          1000
+          -
+          1105
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.concurrent.Future.map
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResourceHandler.this.storage.deposit(AccountAmount.apply(accountInput.amount))(mc).map[controllers.AccountResource](((data: controllers.Response) =&gt; AccountResourceHandler.this.createAccountResource(data)))(AccountResourceHandler.this.ec)
+        </td>
+      </tr><tr>
+        <td>
+          40
+        </td>
+        <td>
+          180
+        </td>
+        <td>
+          1056
+          -
+          1056
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountResourceHandler.ec
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResourceHandler.this.ec
+        </td>
+      </tr><tr>
+        <td>
+          40
+        </td>
+        <td>
+          177
+        </td>
+        <td>
+          1030
+          -
+          1049
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountFormInput.amount
+        </td>
+        <td style="background: #AEF1AE">
+          accountInput.amount
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          179
+        </td>
+        <td>
+          1072
+          -
+          1099
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountResourceHandler.createAccountResource
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResourceHandler.this.createAccountResource(data)
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          182
+        </td>
+        <td>
+          1257
+          -
+          1276
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountFormInput.amount
+        </td>
+        <td style="background: #AEF1AE">
+          accountInput.amount
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          185
+        </td>
+        <td>
+          1283
+          -
+          1283
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountResourceHandler.ec
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResourceHandler.this.ec
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          183
+        </td>
+        <td>
+          1243
+          -
+          1277
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountAmount.apply
+        </td>
+        <td style="background: #AEF1AE">
+          AccountAmount.apply(accountInput.amount)
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          186
+        </td>
+        <td>
+          1226
+          -
+          1332
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.concurrent.Future.map
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResourceHandler.this.storage.withdraw(AccountAmount.apply(accountInput.amount))(mc).map[controllers.AccountResource](((data: controllers.Response) =&gt; AccountResourceHandler.this.createAccountResource(data)))(AccountResourceHandler.this.ec)
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          184
+        </td>
+        <td>
+          1299
+          -
+          1326
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountResourceHandler.createAccountResource
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResourceHandler.this.createAccountResource(data)
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          189
+        </td>
+        <td>
+          1415
+          -
+          1486
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          scala.concurrent.Future.map
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResourceHandler.this.storage.balance()(mc).map[controllers.AccountResource](((data: controllers.Response) =&gt; AccountResourceHandler.this.createAccountResource(data)))(AccountResourceHandler.this.ec)
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          188
+        </td>
+        <td>
+          1437
+          -
+          1437
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountResourceHandler.ec
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResourceHandler.this.ec
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          187
+        </td>
+        <td>
+          1453
+          -
+          1480
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountResourceHandler.createAccountResource
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResourceHandler.this.createAccountResource(data)
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          191
+        </td>
+        <td>
+          1597
+          -
+          1608
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.Response.message
+        </td>
+        <td style="background: #AEF1AE">
+          res.message
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          193
+        </td>
+        <td>
+          1569
+          -
+          1619
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountResource.apply
+        </td>
+        <td style="background: #AEF1AE">
+          AccountResource.apply(res.status, res.message, res.code)
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          190
+        </td>
+        <td>
+          1585
+          -
+          1595
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.Response.status
+        </td>
+        <td style="background: #AEF1AE">
+          res.status
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          192
+        </td>
+        <td>
+          1610
+          -
+          1618
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.Response.code
+        </td>
+        <td style="background: #AEF1AE">
+          res.code
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

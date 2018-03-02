@@ -186,6 +186,6 @@ Allows you to make withdrawals from the account
 Tests run alongside the [sbt-scoverage](https://github.com/scoverage/sbt-scoverage) plugin.
 
 * `$ make test` runs the tests with enabled coverage
-* `$ make report` generates the coverage reports. The last coverage report run is stored [here](/target/scala-2.12/scoverage-report/index.html) as a html file. Summary of the last coverage numbers are shown below
+* `$ make report` generates the coverage reports. The last coverage report run is stored [here](/public/files/report/index.html) as a html file. Summary of the last coverage numbers are shown below
 
 ![coverage report](/public/images/coverage.png "coverage report")
