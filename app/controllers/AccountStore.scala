@@ -200,7 +200,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
                  403)
       }
       // deposit in a max of 4 transations
-      else if (total_transactions > MAX_TRANSACTIONS) {
+      else if (total_transactions >= MAX_TRANSACTIONS) {
         Response(
           "error",
           s"exceeded maximum deposit frequency of USD $MAX_TRANSACTIONS times per day",
@@ -276,7 +276,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
           403)
       }
       // withdraw in a max total of 3 transactions
-      else if (total_transactions > MAX_TRANSACTIONS) {
+      else if (total_transactions >= MAX_TRANSACTIONS) {
         Response(
           "error",
           s"exceeded maximum withdrawal frequency of $MAX_TRANSACTIONS times per day",
