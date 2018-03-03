@@ -20,7 +20,6 @@ class AccountController @Inject()(cc: AccountControllerComponents)(
 
   private val form: Form[AccountFormInput] = {
     import play.api.data.Forms._
-    val numberString = """\d*""".r
     val amountCheckConstraints: Constraint[String] =
       Constraint("constraints.amountcheck")({ plainText =>
         try {
@@ -48,8 +47,23 @@ class AccountController @Inject()(cc: AccountControllerComponents)(
   }
 
   def balance(): Action[AnyContent] = AccountAction.async { implicit request =>
-    accountResourceHandler.balance.map { balance =>
-      Ok(Json.toJson(balance))
+    try {
+      // check for test query string to cover Server error handling
+      val query = request.queryString.map { case (k, v) => k -> v.mkString }
+      val test = query("test").toBoolean
+      if (test) {
+        throw new RuntimeException("testing server error")
+      }
+      accountResourceHandler.balance.map { balance =>
+        Ok(Json.toJson(balance))
+      }
+    } catch {
+      // return the balance normally
+      case ex: NoSuchElementException => {
+        accountResourceHandler.balance.map { balance =>
+          Ok(Json.toJson(balance))
+        }
+      }
     }
   }
 
