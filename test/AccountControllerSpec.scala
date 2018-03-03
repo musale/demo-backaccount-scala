@@ -1,6 +1,5 @@
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice._
-import org.scalatest.BeforeAndAfterEach
 
 import play.api.test._
 import play.api.mvc._
