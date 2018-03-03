@@ -1,6 +1,6 @@
 # Bank Account REST API
 
-> Simple micro web service that mimics a â€œBank Accountâ€. Through this web service, one can query the balance, deposit money, and withdraw money.
+> Simple micro web service that mimics a “Bank Account”. Through this web service, one can query the balance, deposit money, and withdraw money.
 
 ## Getting Started
 
@@ -183,7 +183,7 @@ Allows you to make withdrawals from the account
 
 ### Testing
 
-Tests run alongside the [sbt-scoverage](https://github.com/scoverage/sbt-scoverage) plugin.
+Tests run alongside the [sbt-scoverage](https://github.com/scoverage/sbt-scoverage) plugin for coverage. Bitbucket pipelines run the CI/CD pipeline and the results can be seen [here.](https://bitbucket.org/musale/bank-account/addon/pipelines/home#!/)
 
 * `$ make test` runs the tests with enabled coverage
 * `$ make report` generates the coverage reports. The last coverage report run is stored [here](/public/files/report/index.html) as a html file. Summary of the last coverage numbers are shown below
