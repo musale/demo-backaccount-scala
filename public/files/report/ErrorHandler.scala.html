@@ -30,22 +30,22 @@
 </span>6 <span style=''>
 </span>7 <span style=''>class ErrorHandler extends HttpErrorHandler {
 </span>8 <span style=''>  private def jsonResponse(statusCode: Int, message: String): JsObject =
-</span>9 <span style=''>    </span><span style='background: #F0ADAD'>Json.obj(
-</span>10 <span style=''></span><span style='background: #F0ADAD'>      &quot;errors&quot; -&gt; Json.arr(
-</span>11 <span style=''></span><span style='background: #F0ADAD'>        Json.obj(
-</span>12 <span style=''></span><span style='background: #F0ADAD'>          &quot;status&quot; -&gt; statusCode,
-</span>13 <span style=''></span><span style='background: #F0ADAD'>          &quot;message&quot; -&gt; message
-</span>14 <span style=''></span><span style='background: #F0ADAD'>        )
-</span>15 <span style=''></span><span style='background: #F0ADAD'>      )
-</span>16 <span style=''></span><span style='background: #F0ADAD'>    )</span><span style=''>
+</span>9 <span style=''>    </span><span style='background: #AEF1AE'>Json.obj(
+</span>10 <span style=''></span><span style='background: #AEF1AE'>      &quot;errors&quot; -&gt; Json.arr(
+</span>11 <span style=''></span><span style='background: #AEF1AE'>        Json.obj(
+</span>12 <span style=''></span><span style='background: #AEF1AE'>          &quot;status&quot; -&gt; statusCode,
+</span>13 <span style=''></span><span style='background: #AEF1AE'>          &quot;message&quot; -&gt; message
+</span>14 <span style=''></span><span style='background: #AEF1AE'>        )
+</span>15 <span style=''></span><span style='background: #AEF1AE'>      )
+</span>16 <span style=''></span><span style='background: #AEF1AE'>    )</span><span style=''>
 </span>17 <span style=''>
 </span>18 <span style=''>  def onClientError(
 </span>19 <span style=''>      request: RequestHeader,
 </span>20 <span style=''>      statusCode: Int,
 </span>21 <span style=''>      message: String
-</span>22 <span style=''>  ): Future[Result] = </span><span style='background: #F0ADAD'>Future.successful {
-</span>23 <span style=''></span><span style='background: #F0ADAD'>    Status(statusCode)(jsonResponse(statusCode, message))
-</span>24 <span style=''></span><span style='background: #F0ADAD'>  }</span><span style=''>
+</span>22 <span style=''>  ): Future[Result] = </span><span style='background: #AEF1AE'>Future.successful {
+</span>23 <span style=''></span><span style='background: #AEF1AE'>    Status(statusCode)(jsonResponse(statusCode, message))
+</span>24 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
 </span>25 <span style=''>
 </span>26 <span style=''>  def onServerError(
 </span>27 <span style=''>      request: RequestHeader,
@@ -83,7 +83,7 @@
         <td>
           play.api.libs.json.Json.obj
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;errors&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsArray](play.api.libs.json.Json.arr(json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites)))(json.this.Writes.JsValueWrites)))
         </td>
       </tr><tr>
@@ -104,7 +104,7 @@
         <td>
           play.api.libs.json.DefaultWrites.JsValueWrites
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           json.this.Writes.JsValueWrites
         </td>
       </tr><tr>
@@ -125,7 +125,7 @@
         <td>
           play.api.libs.json.Json.arr
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           play.api.libs.json.Json.arr(json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites))
         </td>
       </tr><tr>
@@ -146,7 +146,7 @@
         <td>
           scala.Predef.ArrowAssoc.-&gt;
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           scala.Predef.ArrowAssoc[String](&quot;errors&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsArray](play.api.libs.json.Json.arr(json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites)))(json.this.Writes.JsValueWrites))
         </td>
       </tr><tr>
@@ -167,7 +167,7 @@
         <td>
           &lt;nosymbol&gt;
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           &quot;errors&quot;
         </td>
       </tr><tr>
@@ -188,7 +188,7 @@
         <td>
           play.api.libs.json.Json.toJsFieldJsValueWrapper
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsArray](play.api.libs.json.Json.arr(json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites)))(json.this.Writes.JsValueWrites)
         </td>
       </tr><tr>
@@ -209,7 +209,7 @@
         <td>
           play.api.libs.json.DefaultWrites.JsValueWrites
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           json.this.Writes.JsValueWrites
         </td>
       </tr><tr>
@@ -230,7 +230,7 @@
         <td>
           play.api.libs.json.Json.obj
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites)))
         </td>
       </tr><tr>
@@ -251,7 +251,7 @@
         <td>
           play.api.libs.json.Json.toJsFieldJsValueWrapper
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites)
         </td>
       </tr><tr>
@@ -272,7 +272,7 @@
         <td>
           &lt;nosymbol&gt;
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           &quot;status&quot;
         </td>
       </tr><tr>
@@ -293,7 +293,7 @@
         <td>
           scala.Predef.ArrowAssoc.-&gt;
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites))
         </td>
       </tr><tr>
@@ -314,7 +314,7 @@
         <td>
           play.api.libs.json.Json.toJsFieldJsValueWrapper
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)
         </td>
       </tr><tr>
@@ -335,7 +335,7 @@
         <td>
           play.api.libs.json.DefaultWrites.IntWrites
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           json.this.Writes.IntWrites
         </td>
       </tr><tr>
@@ -356,7 +356,7 @@
         <td>
           play.api.libs.json.Json.toJsFieldJsValueWrapper
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites)
         </td>
       </tr><tr>
@@ -377,7 +377,7 @@
         <td>
           play.api.libs.json.DefaultWrites.StringWrites
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           json.this.Writes.StringWrites
         </td>
       </tr><tr>
@@ -398,7 +398,7 @@
         <td>
           scala.Predef.ArrowAssoc.-&gt;
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))
         </td>
       </tr><tr>
@@ -419,7 +419,7 @@
         <td>
           &lt;nosymbol&gt;
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           &quot;message&quot;
         </td>
       </tr><tr>
@@ -440,7 +440,7 @@
         <td>
           scala.concurrent.Future.successful
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           scala.concurrent.Future.successful[play.api.mvc.Result](play.api.mvc.Results.Status(statusCode).apply[play.api.libs.json.JsObject](ErrorHandler.this.jsonResponse(statusCode, message))(http.this.Writeable.writeableOf_JsValue))
         </td>
       </tr><tr>
@@ -461,7 +461,7 @@
         <td>
           play.api.mvc.Results.Status.apply
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           play.api.mvc.Results.Status(statusCode).apply[play.api.libs.json.JsObject](ErrorHandler.this.jsonResponse(statusCode, message))(http.this.Writeable.writeableOf_JsValue)
         </td>
       </tr><tr>
@@ -482,7 +482,7 @@
         <td>
           play.api.http.DefaultWriteables.writeableOf_JsValue
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           http.this.Writeable.writeableOf_JsValue
         </td>
       </tr><tr>
@@ -503,7 +503,7 @@
         <td>
           ErrorHandler.jsonResponse
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           ErrorHandler.this.jsonResponse(statusCode, message)
         </td>
       </tr><tr>

@@ -44,79 +44,78 @@
 </span>20 <span style=''>
 </span>21 <span style=''>  private val form: Form[AccountFormInput] = {
 </span>22 <span style=''>    import play.api.data.Forms._
-</span>23 <span style=''>    val numberString = </span><span style='background: #AEF1AE'>&quot;&quot;&quot;\d*&quot;&quot;&quot;.r</span><span style=''>
-</span>24 <span style=''>    val amountCheckConstraints: Constraint[String] =
-</span>25 <span style=''>      </span><span style='background: #AEF1AE'>Constraint(&quot;constraints.amountcheck&quot;)({ plainText =&gt;
-</span>26 <span style=''></span><span style='background: #AEF1AE'>        try {
-</span>27 <span style=''></span><span style='background: #AEF1AE'>          plainText.toDouble
-</span>28 <span style=''></span><span style='background: #AEF1AE'>          Valid
-</span>29 <span style=''></span><span style='background: #AEF1AE'>        } catch {
-</span>30 <span style=''></span><span style='background: #AEF1AE'>          case ex: NumberFormatException =&gt;
-</span>31 <span style=''></span><span style='background: #AEF1AE'>            Invalid(
-</span>32 <span style=''></span><span style='background: #AEF1AE'>              Seq(ValidationError(s&quot;amount $plainText should be a Number&quot;)))
-</span>33 <span style=''></span><span style='background: #AEF1AE'>        }
-</span>34 <span style=''></span><span style='background: #AEF1AE'>      })</span><span style=''>
-</span>35 <span style=''>    </span><span style='background: #AEF1AE'>Form(
-</span>36 <span style=''></span><span style='background: #AEF1AE'>      mapping(
-</span>37 <span style=''></span><span style='background: #AEF1AE'>        &quot;amount&quot; -&gt; text.verifying(amountCheckConstraints)
-</span>38 <span style=''></span><span style='background: #AEF1AE'>      )(AccountFormInput.apply)(</span><span style='background: #F0ADAD'>AccountFormInput.unapply(_)</span><span style='background: #AEF1AE'>)
-</span>39 <span style=''></span><span style='background: #AEF1AE'>    )</span><span style=''>
-</span>40 <span style=''>  }
-</span>41 <span style=''>
-</span>42 <span style=''>  def deposit: Action[AnyContent] = </span><span style='background: #AEF1AE'>AccountAction.async { implicit request =&gt;
-</span>43 <span style=''></span><span style='background: #AEF1AE'>    processDeposit()
-</span>44 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
-</span>45 <span style=''>
-</span>46 <span style=''>  def withdraw: Action[AnyContent] = </span><span style='background: #AEF1AE'>AccountAction.async { implicit request =&gt;
-</span>47 <span style=''></span><span style='background: #AEF1AE'>    processWithdrawal()
-</span>48 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
-</span>49 <span style=''>
-</span>50 <span style=''>  def balance(): Action[AnyContent] = </span><span style='background: #AEF1AE'>AccountAction.async { implicit request =&gt;
-</span>51 <span style=''></span><span style='background: #AEF1AE'>    accountResourceHandler.balance.map { balance =&gt;
-</span>52 <span style=''></span><span style='background: #AEF1AE'>      Ok(Json.toJson(balance))
-</span>53 <span style=''></span><span style='background: #AEF1AE'>    }
-</span>54 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
-</span>55 <span style=''>
-</span>56 <span style=''>  private def processDeposit[A]()(
-</span>57 <span style=''>      implicit request: AccountRequest[A]): Future[Result] = {
-</span>58 <span style=''>    def failure(badForm: Form[AccountFormInput]) = {
-</span>59 <span style=''>      </span><span style='background: #AEF1AE'>Future.successful(BadRequest(badForm.errorsAsJson))</span><span style=''>
-</span>60 <span style=''>    }
-</span>61 <span style=''>
-</span>62 <span style=''>    def success(input: AccountFormInput) = {
-</span>63 <span style=''>      </span><span style='background: #AEF1AE'>accountResourceHandler.deposit(input).map { response =&gt;
-</span>64 <span style=''></span><span style='background: #AEF1AE'>        response.code match {
-</span>65 <span style=''></span><span style='background: #AEF1AE'>          case 201 =&gt;
-</span>66 <span style=''></span><span style='background: #AEF1AE'>            Created(Json.toJson(response))
-</span>67 <span style=''></span><span style='background: #AEF1AE'>              .withHeaders(LOCATION -&gt; &quot;/api/v1/balance&quot;)
-</span>68 <span style=''></span><span style='background: #AEF1AE'>          case 403 =&gt; Forbidden(Json.toJson(response))
-</span>69 <span style=''></span><span style='background: #AEF1AE'>        }
-</span>70 <span style=''></span><span style='background: #AEF1AE'>      }</span><span style=''>
-</span>71 <span style=''>    }
-</span>72 <span style=''>
-</span>73 <span style=''>    </span><span style='background: #AEF1AE'>form.bindFromRequest().fold(failure, success)</span><span style=''>
-</span>74 <span style=''>  }
-</span>75 <span style=''>
-</span>76 <span style=''>  private def processWithdrawal[A]()(
-</span>77 <span style=''>      implicit request: AccountRequest[A]): Future[Result] = {
-</span>78 <span style=''>    def failure(badForm: Form[AccountFormInput]) = {
-</span>79 <span style=''>      </span><span style='background: #AEF1AE'>Future.successful(BadRequest(badForm.errorsAsJson))</span><span style=''>
-</span>80 <span style=''>    }
-</span>81 <span style=''>
-</span>82 <span style=''>    def success(input: AccountFormInput) = {
-</span>83 <span style=''>      </span><span style='background: #AEF1AE'>accountResourceHandler.withdraw(input).map { response =&gt;
-</span>84 <span style=''></span><span style='background: #AEF1AE'>        response.code match {
-</span>85 <span style=''></span><span style='background: #AEF1AE'>          case 201 =&gt;
-</span>86 <span style=''></span><span style='background: #AEF1AE'>            Created(Json.toJson(response))
-</span>87 <span style=''></span><span style='background: #AEF1AE'>              .withHeaders(LOCATION -&gt; &quot;/api/v1/balance&quot;)
-</span>88 <span style=''></span><span style='background: #AEF1AE'>          case 403 =&gt; Forbidden(Json.toJson(response))
-</span>89 <span style=''></span><span style='background: #AEF1AE'>        }
-</span>90 <span style=''></span><span style='background: #AEF1AE'>      }</span><span style=''>
-</span>91 <span style=''>    }
-</span>92 <span style=''>
-</span>93 <span style=''>    </span><span style='background: #AEF1AE'>form.bindFromRequest().fold(failure, success)</span><span style=''>
-</span>94 <span style=''>  }
-</span>95 <span style=''>}
+</span>23 <span style=''>    val amountCheckConstraints: Constraint[String] =
+</span>24 <span style=''>      </span><span style='background: #AEF1AE'>Constraint(&quot;constraints.amountcheck&quot;)({ plainText =&gt;
+</span>25 <span style=''></span><span style='background: #AEF1AE'>        try {
+</span>26 <span style=''></span><span style='background: #AEF1AE'>          plainText.toDouble
+</span>27 <span style=''></span><span style='background: #AEF1AE'>          Valid
+</span>28 <span style=''></span><span style='background: #AEF1AE'>        } catch {
+</span>29 <span style=''></span><span style='background: #AEF1AE'>          case ex: NumberFormatException =&gt;
+</span>30 <span style=''></span><span style='background: #AEF1AE'>            Invalid(
+</span>31 <span style=''></span><span style='background: #AEF1AE'>              Seq(ValidationError(s&quot;amount $plainText should be a Number&quot;)))
+</span>32 <span style=''></span><span style='background: #AEF1AE'>        }
+</span>33 <span style=''></span><span style='background: #AEF1AE'>      })</span><span style=''>
+</span>34 <span style=''>    </span><span style='background: #AEF1AE'>Form(
+</span>35 <span style=''></span><span style='background: #AEF1AE'>      mapping(
+</span>36 <span style=''></span><span style='background: #AEF1AE'>        &quot;amount&quot; -&gt; text.verifying(amountCheckConstraints)
+</span>37 <span style=''></span><span style='background: #AEF1AE'>      )(AccountFormInput.apply)(</span><span style='background: #F0ADAD'>AccountFormInput.unapply(_)</span><span style='background: #AEF1AE'>)
+</span>38 <span style=''></span><span style='background: #AEF1AE'>    )</span><span style=''>
+</span>39 <span style=''>  }
+</span>40 <span style=''>
+</span>41 <span style=''>  def deposit: Action[AnyContent] = </span><span style='background: #AEF1AE'>AccountAction.async { implicit request =&gt;
+</span>42 <span style=''></span><span style='background: #AEF1AE'>    processDeposit()
+</span>43 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
+</span>44 <span style=''>
+</span>45 <span style=''>  def withdraw: Action[AnyContent] = </span><span style='background: #AEF1AE'>AccountAction.async { implicit request =&gt;
+</span>46 <span style=''></span><span style='background: #AEF1AE'>    processWithdrawal()
+</span>47 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
+</span>48 <span style=''>
+</span>49 <span style=''>  def balance(): Action[AnyContent] = </span><span style='background: #AEF1AE'>AccountAction.async { implicit request =&gt;
+</span>50 <span style=''></span><span style='background: #AEF1AE'>    accountResourceHandler.balance.map { balance =&gt;
+</span>51 <span style=''></span><span style='background: #AEF1AE'>      Ok(Json.toJson(balance))
+</span>52 <span style=''></span><span style='background: #AEF1AE'>    }
+</span>53 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
+</span>54 <span style=''>
+</span>55 <span style=''>  private def processDeposit[A]()(
+</span>56 <span style=''>      implicit request: AccountRequest[A]): Future[Result] = {
+</span>57 <span style=''>    def failure(badForm: Form[AccountFormInput]) = {
+</span>58 <span style=''>      </span><span style='background: #AEF1AE'>Future.successful(BadRequest(badForm.errorsAsJson))</span><span style=''>
+</span>59 <span style=''>    }
+</span>60 <span style=''>
+</span>61 <span style=''>    def success(input: AccountFormInput) = {
+</span>62 <span style=''>      </span><span style='background: #AEF1AE'>accountResourceHandler.deposit(input).map { response =&gt;
+</span>63 <span style=''></span><span style='background: #AEF1AE'>        response.code match {
+</span>64 <span style=''></span><span style='background: #AEF1AE'>          case 201 =&gt;
+</span>65 <span style=''></span><span style='background: #AEF1AE'>            Created(Json.toJson(response))
+</span>66 <span style=''></span><span style='background: #AEF1AE'>              .withHeaders(LOCATION -&gt; &quot;/api/v1/balance&quot;)
+</span>67 <span style=''></span><span style='background: #AEF1AE'>          case 403 =&gt; Forbidden(Json.toJson(response))
+</span>68 <span style=''></span><span style='background: #AEF1AE'>        }
+</span>69 <span style=''></span><span style='background: #AEF1AE'>      }</span><span style=''>
+</span>70 <span style=''>    }
+</span>71 <span style=''>
+</span>72 <span style=''>    </span><span style='background: #AEF1AE'>form.bindFromRequest().fold(failure, success)</span><span style=''>
+</span>73 <span style=''>  }
+</span>74 <span style=''>
+</span>75 <span style=''>  private def processWithdrawal[A]()(
+</span>76 <span style=''>      implicit request: AccountRequest[A]): Future[Result] = {
+</span>77 <span style=''>    def failure(badForm: Form[AccountFormInput]) = {
+</span>78 <span style=''>      </span><span style='background: #AEF1AE'>Future.successful(BadRequest(badForm.errorsAsJson))</span><span style=''>
+</span>79 <span style=''>    }
+</span>80 <span style=''>
+</span>81 <span style=''>    def success(input: AccountFormInput) = {
+</span>82 <span style=''>      </span><span style='background: #AEF1AE'>accountResourceHandler.withdraw(input).map { response =&gt;
+</span>83 <span style=''></span><span style='background: #AEF1AE'>        response.code match {
+</span>84 <span style=''></span><span style='background: #AEF1AE'>          case 201 =&gt;
+</span>85 <span style=''></span><span style='background: #AEF1AE'>            Created(Json.toJson(response))
+</span>86 <span style=''></span><span style='background: #AEF1AE'>              .withHeaders(LOCATION -&gt; &quot;/api/v1/balance&quot;)
+</span>87 <span style=''></span><span style='background: #AEF1AE'>          case 403 =&gt; Forbidden(Json.toJson(response))
+</span>88 <span style=''></span><span style='background: #AEF1AE'>        }
+</span>89 <span style=''></span><span style='background: #AEF1AE'>      }</span><span style=''>
+</span>90 <span style=''>    }
+</span>91 <span style=''>
+</span>92 <span style=''>    </span><span style='background: #AEF1AE'>form.bindFromRequest().fold(failure, success)</span><span style=''>
+</span>93 <span style=''>  }
+</span>94 <span style=''>}
 </span></pre>
           </div>
           <div class="tab-pane" id="statementlist">
@@ -130,78 +129,15 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          23
+          24
         </td>
         <td>
-          91
+          98
         </td>
         <td>
-          556
+          592
           -
-          567
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          scala.collection.immutable.StringLike.r
-        </td>
-        <td style="background: #AEF1AE">
-          scala.Predef.augmentString(&quot;\\d*&quot;).r
-        </td>
-      </tr><tr>
-        <td>
-          23
-        </td>
-        <td>
-          90
-        </td>
-        <td>
-          556
-          -
-          565
-        </td>
-        <td>
-          Literal
-        </td>
-        <td>
-          &lt;nosymbol&gt;
-        </td>
-        <td style="background: #AEF1AE">
-          &quot;\\d*&quot;
-        </td>
-      </tr><tr>
-        <td>
-          25
-        </td>
-        <td>
-          92
-        </td>
-        <td>
-          638
-          -
-          663
-        </td>
-        <td>
-          Literal
-        </td>
-        <td>
-          &lt;nosymbol&gt;
-        </td>
-        <td style="background: #AEF1AE">
-          &quot;constraints.amountcheck&quot;
-        </td>
-      </tr><tr>
-        <td>
-          25
-        </td>
-        <td>
-          100
-        </td>
-        <td>
-          627
-          -
-          917
+          882
         </td>
         <td>
           Apply
@@ -219,15 +155,36 @@
         </td>
       </tr><tr>
         <td>
-          26
+          24
         </td>
         <td>
-          95
+          90
         </td>
         <td>
-          704
+          603
           -
-          738
+          628
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;constraints.amountcheck&quot;
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          93
+        </td>
+        <td>
+          669
+          -
+          703
         </td>
         <td>
           Block
@@ -243,15 +200,15 @@
         </td>
       </tr><tr>
         <td>
-          27
+          26
         </td>
         <td>
-          93
+          91
         </td>
         <td>
-          704
+          669
           -
-          722
+          687
         </td>
         <td>
           Select
@@ -264,15 +221,15 @@
         </td>
       </tr><tr>
         <td>
-          28
+          27
         </td>
         <td>
-          94
+          92
         </td>
         <td>
-          733
+          698
           -
-          738
+          703
         </td>
         <td>
           Select
@@ -285,15 +242,15 @@
         </td>
       </tr><tr>
         <td>
-          31
+          30
         </td>
         <td>
-          99
+          97
         </td>
         <td>
-          813
+          778
           -
-          898
+          863
         </td>
         <td>
           Apply
@@ -306,36 +263,15 @@
         </td>
       </tr><tr>
         <td>
-          32
+          31
         </td>
         <td>
-          98
+          95
         </td>
         <td>
-          836
+          805
           -
-          897
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.collection.generic.GenericCompanion.apply
-        </td>
-        <td style="background: #AEF1AE">
-          scala.collection.Seq.apply[play.api.data.validation.ValidationError](play.api.data.validation.ValidationError.apply(scala.StringContext.apply(&quot;amount &quot;, &quot; should be a Number&quot;).s(plainText)))
-        </td>
-      </tr><tr>
-        <td>
-          32
-        </td>
-        <td>
-          97
-        </td>
-        <td>
-          840
-          -
-          896
+          861
         </td>
         <td>
           Apply
@@ -348,15 +284,15 @@
         </td>
       </tr><tr>
         <td>
-          32
+          31
         </td>
         <td>
-          96
+          94
         </td>
         <td>
-          856
+          821
           -
-          895
+          860
         </td>
         <td>
           Apply
@@ -369,15 +305,36 @@
         </td>
       </tr><tr>
         <td>
-          35
+          31
         </td>
         <td>
-          107
+          96
         </td>
         <td>
-          922
+          801
           -
-          1068
+          862
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.generic.GenericCompanion.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.collection.Seq.apply[play.api.data.validation.ValidationError](play.api.data.validation.ValidationError.apply(scala.StringContext.apply(&quot;amount &quot;, &quot; should be a Number&quot;).s(plainText)))
+        </td>
+      </tr><tr>
+        <td>
+          34
+        </td>
+        <td>
+          105
+        </td>
+        <td>
+          887
+          -
+          1033
         </td>
         <td>
           Apply
@@ -392,15 +349,57 @@
         </td>
       </tr><tr>
         <td>
-          37
+          36
         </td>
         <td>
           101
         </td>
         <td>
-          951
+          916
           -
-          959
+          966
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.ArrowAssoc.-&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.ArrowAssoc[String](&quot;amount&quot;).-&gt;[play.api.data.Mapping[String]](play.api.data.Forms.text.verifying(amountCheckConstraints))
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          100
+        </td>
+        <td>
+          928
+          -
+          966
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.api.data.Mapping.verifying
+        </td>
+        <td style="background: #AEF1AE">
+          play.api.data.Forms.text.verifying(amountCheckConstraints)
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          99
+        </td>
+        <td>
+          916
+          -
+          924
         </td>
         <td>
           Literal
@@ -416,75 +415,12 @@
           37
         </td>
         <td>
-          103
-        </td>
-        <td>
-          951
-          -
-          1001
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.Predef.ArrowAssoc.-&gt;
-        </td>
-        <td style="background: #AEF1AE">
-          scala.Predef.ArrowAssoc[String](&quot;amount&quot;).-&gt;[play.api.data.Mapping[String]](play.api.data.Forms.text.verifying(amountCheckConstraints))
-        </td>
-      </tr><tr>
-        <td>
-          37
-        </td>
-        <td>
-          102
-        </td>
-        <td>
-          963
-          -
-          1001
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          play.api.data.Mapping.verifying
-        </td>
-        <td style="background: #AEF1AE">
-          play.api.data.Forms.text.verifying(amountCheckConstraints)
-        </td>
-      </tr><tr>
-        <td>
-          38
-        </td>
-        <td>
           104
         </td>
         <td>
-          1010
+          899
           -
-          1032
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          controllers.AccountFormInput.apply
-        </td>
-        <td style="background: #AEF1AE">
-          AccountFormInput.apply(amount)
-        </td>
-      </tr><tr>
-        <td>
-          38
-        </td>
-        <td>
-          106
-        </td>
-        <td>
-          934
-          -
-          1062
+          1027
         </td>
         <td>
           Apply
@@ -499,15 +435,15 @@
         </td>
       </tr><tr>
         <td>
-          38
+          37
         </td>
         <td>
-          105
+          103
         </td>
         <td>
-          1034
+          999
           -
-          1061
+          1026
         </td>
         <td>
           Apply
@@ -520,15 +456,36 @@
         </td>
       </tr><tr>
         <td>
-          42
+          37
         </td>
         <td>
-          109
+          102
         </td>
         <td>
-          1110
+          975
           -
-          1176
+          997
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountFormInput.apply
+        </td>
+        <td style="background: #AEF1AE">
+          AccountFormInput.apply(amount)
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          107
+        </td>
+        <td>
+          1075
+          -
+          1141
         </td>
         <td>
           Apply
@@ -541,15 +498,15 @@
         </td>
       </tr><tr>
         <td>
-          43
+          42
         </td>
         <td>
-          108
+          106
         </td>
         <td>
-          1156
+          1121
           -
-          1172
+          1137
         </td>
         <td>
           ApplyToImplicitArgs
@@ -562,15 +519,15 @@
         </td>
       </tr><tr>
         <td>
-          46
+          45
         </td>
         <td>
-          111
+          109
         </td>
         <td>
-          1215
+          1180
           -
-          1284
+          1249
         </td>
         <td>
           Apply
@@ -583,15 +540,15 @@
         </td>
       </tr><tr>
         <td>
-          47
+          46
         </td>
         <td>
-          110
+          108
         </td>
         <td>
-          1261
+          1226
           -
-          1280
+          1245
         </td>
         <td>
           ApplyToImplicitArgs
@@ -604,15 +561,15 @@
         </td>
       </tr><tr>
         <td>
-          50
+          49
         </td>
         <td>
-          119
+          117
         </td>
         <td>
-          1324
+          1289
           -
-          1458
+          1423
         </td>
         <td>
           Apply
@@ -625,15 +582,36 @@
         </td>
       </tr><tr>
         <td>
-          51
+          50
         </td>
         <td>
-          118
+          110
         </td>
         <td>
-          1370
+          1358
           -
-          1454
+          1358
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          controllers.RequestMarkerContext.requestHeaderToMarkerContext
+        </td>
+        <td style="background: #AEF1AE">
+          AccountController.this.requestHeaderToMarkerContext(request)
+        </td>
+      </tr><tr>
+        <td>
+          50
+        </td>
+        <td>
+          116
+        </td>
+        <td>
+          1335
+          -
+          1419
         </td>
         <td>
           ApplyToImplicitArgs
@@ -646,36 +624,15 @@
         </td>
       </tr><tr>
         <td>
-          51
+          50
         </td>
         <td>
-          112
+          115
         </td>
         <td>
-          1393
+          1370
           -
-          1393
-        </td>
-        <td>
-          ApplyToImplicitArgs
-        </td>
-        <td>
-          controllers.RequestMarkerContext.requestHeaderToMarkerContext
-        </td>
-        <td style="background: #AEF1AE">
-          AccountController.this.requestHeaderToMarkerContext(request)
-        </td>
-      </tr><tr>
-        <td>
-          51
-        </td>
-        <td>
-          117
-        </td>
-        <td>
-          1405
-          -
-          1405
+          1370
         </td>
         <td>
           Select
@@ -688,57 +645,15 @@
         </td>
       </tr><tr>
         <td>
-          52
+          51
         </td>
         <td>
           113
         </td>
         <td>
-          1438
+          1391
           -
-          1438
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          controllers.AccountResource.implicitWrites
-        </td>
-        <td style="background: #AEF1AE">
-          controllers.this.AccountResource.implicitWrites
-        </td>
-      </tr><tr>
-        <td>
-          52
-        </td>
-        <td>
-          116
-        </td>
-        <td>
-          1424
-          -
-          1448
-        </td>
-        <td>
-          ApplyToImplicitArgs
-        </td>
-        <td>
-          play.api.mvc.Results.Status.apply
-        </td>
-        <td style="background: #AEF1AE">
-          AccountController.this.Ok.apply[play.api.libs.json.JsValue](play.api.libs.json.Json.toJson[controllers.AccountResource](balance)(controllers.this.AccountResource.implicitWrites))(http.this.Writeable.writeableOf_JsValue)
-        </td>
-      </tr><tr>
-        <td>
-          52
-        </td>
-        <td>
-          115
-        </td>
-        <td>
-          1426
-          -
-          1426
+          1391
         </td>
         <td>
           Select
@@ -751,15 +666,15 @@
         </td>
       </tr><tr>
         <td>
-          52
+          51
         </td>
         <td>
-          114
+          112
         </td>
         <td>
-          1427
+          1392
           -
-          1447
+          1412
         </td>
         <td>
           ApplyToImplicitArgs
@@ -772,15 +687,15 @@
         </td>
       </tr><tr>
         <td>
-          59
+          51
         </td>
         <td>
-          122
+          114
         </td>
         <td>
-          1635
+          1389
           -
-          1667
+          1413
         </td>
         <td>
           ApplyToImplicitArgs
@@ -789,19 +704,40 @@
           play.api.mvc.Results.Status.apply
         </td>
         <td style="background: #AEF1AE">
-          AccountController.this.BadRequest.apply[play.api.libs.json.JsValue](badForm.errorsAsJson(request))(http.this.Writeable.writeableOf_JsValue)
+          AccountController.this.Ok.apply[play.api.libs.json.JsValue](play.api.libs.json.Json.toJson[controllers.AccountResource](balance)(controllers.this.AccountResource.implicitWrites))(http.this.Writeable.writeableOf_JsValue)
         </td>
       </tr><tr>
         <td>
-          59
+          51
         </td>
         <td>
-          121
+          111
         </td>
         <td>
-          1645
+          1403
           -
-          1645
+          1403
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountResource.implicitWrites
+        </td>
+        <td style="background: #AEF1AE">
+          controllers.this.AccountResource.implicitWrites
+        </td>
+      </tr><tr>
+        <td>
+          58
+        </td>
+        <td>
+          119
+        </td>
+        <td>
+          1610
+          -
+          1610
         </td>
         <td>
           Select
@@ -814,15 +750,15 @@
         </td>
       </tr><tr>
         <td>
-          59
+          58
         </td>
         <td>
-          120
+          118
         </td>
         <td>
-          1646
+          1611
           -
-          1666
+          1631
         </td>
         <td>
           ApplyToImplicitArgs
@@ -835,15 +771,15 @@
         </td>
       </tr><tr>
         <td>
-          59
+          58
         </td>
         <td>
-          123
+          121
         </td>
         <td>
-          1617
+          1582
           -
-          1668
+          1633
         </td>
         <td>
           Apply
@@ -856,15 +792,36 @@
         </td>
       </tr><tr>
         <td>
-          63
+          58
         </td>
         <td>
-          124
+          120
         </td>
         <td>
-          1757
+          1600
           -
-          1757
+          1632
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.mvc.Results.Status.apply
+        </td>
+        <td style="background: #AEF1AE">
+          AccountController.this.BadRequest.apply[play.api.libs.json.JsValue](badForm.errorsAsJson(request))(http.this.Writeable.writeableOf_JsValue)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          122
+        </td>
+        <td>
+          1722
+          -
+          1722
         </td>
         <td>
           ApplyToImplicitArgs
@@ -877,15 +834,15 @@
         </td>
       </tr><tr>
         <td>
-          63
+          62
         </td>
         <td>
-          136
+          134
         </td>
         <td>
-          1727
+          1692
           -
-          2008
+          1973
         </td>
         <td>
           ApplyToImplicitArgs
@@ -901,15 +858,15 @@
         </td>
       </tr><tr>
         <td>
-          63
+          62
         </td>
         <td>
-          135
+          133
         </td>
         <td>
-          1769
+          1734
           -
-          1769
+          1734
         </td>
         <td>
           Select
@@ -922,15 +879,15 @@
         </td>
       </tr><tr>
         <td>
-          64
+          63
         </td>
         <td>
-          125
+          123
         </td>
         <td>
-          1791
+          1756
           -
-          1804
+          1769
         </td>
         <td>
           Select
@@ -943,15 +900,57 @@
         </td>
       </tr><tr>
         <td>
-          66
+          65
         </td>
         <td>
-          128
+          125
         </td>
         <td>
-          1854
+          1820
           -
-          1854
+          1841
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.libs.json.Json.toJson
+        </td>
+        <td style="background: #AEF1AE">
+          play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites)
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          124
+        </td>
+        <td>
+          1831
+          -
+          1831
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountResource.implicitWrites
+        </td>
+        <td style="background: #AEF1AE">
+          controllers.this.AccountResource.implicitWrites
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          126
+        </td>
+        <td>
+          1819
+          -
+          1819
         </td>
         <td>
           Select
@@ -967,54 +966,12 @@
           66
         </td>
         <td>
-          127
+          128
         </td>
         <td>
-          1855
+          1812
           -
-          1876
-        </td>
-        <td>
-          ApplyToImplicitArgs
-        </td>
-        <td>
-          play.api.libs.json.Json.toJson
-        </td>
-        <td style="background: #AEF1AE">
-          play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites)
-        </td>
-      </tr><tr>
-        <td>
-          66
-        </td>
-        <td>
-          126
-        </td>
-        <td>
-          1866
-          -
-          1866
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          controllers.AccountResource.implicitWrites
-        </td>
-        <td style="background: #AEF1AE">
-          controllers.this.AccountResource.implicitWrites
-        </td>
-      </tr><tr>
-        <td>
-          67
-        </td>
-        <td>
-          130
-        </td>
-        <td>
-          1847
-          -
-          1935
+          1900
         </td>
         <td>
           Apply
@@ -1027,15 +984,15 @@
         </td>
       </tr><tr>
         <td>
-          67
+          66
         </td>
         <td>
-          129
+          127
         </td>
         <td>
-          1905
+          1870
           -
-          1934
+          1899
         </td>
         <td>
           Apply
@@ -1048,57 +1005,15 @@
         </td>
       </tr><tr>
         <td>
-          68
+          67
         </td>
         <td>
           131
         </td>
         <td>
-          1979
+          1932
           -
-          1979
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          controllers.AccountResource.implicitWrites
-        </td>
-        <td style="background: #AEF1AE">
-          controllers.this.AccountResource.implicitWrites
-        </td>
-      </tr><tr>
-        <td>
-          68
-        </td>
-        <td>
-          134
-        </td>
-        <td>
-          1958
-          -
-          1990
-        </td>
-        <td>
-          ApplyToImplicitArgs
-        </td>
-        <td>
-          play.api.mvc.Results.Status.apply
-        </td>
-        <td style="background: #AEF1AE">
-          AccountController.this.Forbidden.apply[play.api.libs.json.JsValue](play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites))(http.this.Writeable.writeableOf_JsValue)
-        </td>
-      </tr><tr>
-        <td>
-          68
-        </td>
-        <td>
-          133
-        </td>
-        <td>
-          1967
-          -
-          1967
+          1932
         </td>
         <td>
           Select
@@ -1111,15 +1026,15 @@
         </td>
       </tr><tr>
         <td>
-          68
+          67
         </td>
         <td>
-          132
+          130
         </td>
         <td>
-          1968
+          1933
           -
-          1989
+          1954
         </td>
         <td>
           ApplyToImplicitArgs
@@ -1132,36 +1047,57 @@
         </td>
       </tr><tr>
         <td>
-          73
+          67
+        </td>
+        <td>
+          129
+        </td>
+        <td>
+          1944
+          -
+          1944
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          controllers.AccountResource.implicitWrites
+        </td>
+        <td style="background: #AEF1AE">
+          controllers.this.AccountResource.implicitWrites
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          132
+        </td>
+        <td>
+          1923
+          -
+          1955
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.mvc.Results.Status.apply
+        </td>
+        <td style="background: #AEF1AE">
+          AccountController.this.Forbidden.apply[play.api.libs.json.JsValue](play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites))(http.this.Writeable.writeableOf_JsValue)
+        </td>
+      </tr><tr>
+        <td>
+          72
         </td>
         <td>
           137
         </td>
         <td>
-          2048
+          1985
           -
-          2055
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          controllers.AccountController.failure
-        </td>
-        <td style="background: #AEF1AE">
-          failure(badForm)
-        </td>
-      </tr><tr>
-        <td>
-          73
-        </td>
-        <td>
-          139
-        </td>
-        <td>
-          2020
-          -
-          2065
+          2030
         </td>
         <td>
           Apply
@@ -1178,15 +1114,15 @@
         </td>
       </tr><tr>
         <td>
-          73
+          72
         </td>
         <td>
-          138
+          136
         </td>
         <td>
-          2057
+          2022
           -
-          2064
+          2029
         </td>
         <td>
           Apply
@@ -1199,36 +1135,36 @@
         </td>
       </tr><tr>
         <td>
-          79
+          72
+        </td>
+        <td>
+          135
+        </td>
+        <td>
+          2013
+          -
+          2020
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountController.failure
+        </td>
+        <td style="background: #AEF1AE">
+          failure(badForm)
+        </td>
+      </tr><tr>
+        <td>
+          78
         </td>
         <td>
           140
         </td>
         <td>
-          2260
+          2214
           -
-          2280
-        </td>
-        <td>
-          ApplyToImplicitArgs
-        </td>
-        <td>
-          play.api.data.Form.errorsAsJson
-        </td>
-        <td style="background: #AEF1AE">
-          badForm.errorsAsJson(request)
-        </td>
-      </tr><tr>
-        <td>
-          79
-        </td>
-        <td>
-          142
-        </td>
-        <td>
-          2249
-          -
-          2281
+          2246
         </td>
         <td>
           ApplyToImplicitArgs
@@ -1241,15 +1177,15 @@
         </td>
       </tr><tr>
         <td>
-          79
+          78
         </td>
         <td>
-          141
+          139
         </td>
         <td>
-          2259
+          2224
           -
-          2259
+          2224
         </td>
         <td>
           Select
@@ -1262,15 +1198,36 @@
         </td>
       </tr><tr>
         <td>
-          79
+          78
         </td>
         <td>
-          143
+          138
         </td>
         <td>
-          2231
+          2225
           -
-          2282
+          2245
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.data.Form.errorsAsJson
+        </td>
+        <td style="background: #AEF1AE">
+          badForm.errorsAsJson(request)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          141
+        </td>
+        <td>
+          2196
+          -
+          2247
         </td>
         <td>
           Apply
@@ -1283,36 +1240,36 @@
         </td>
       </tr><tr>
         <td>
-          83
+          82
         </td>
         <td>
-          155
+          142
         </td>
         <td>
-          2384
+          2337
           -
-          2384
+          2337
         </td>
         <td>
-          Select
+          ApplyToImplicitArgs
         </td>
         <td>
-          controllers.AccountController.ec
+          controllers.RequestMarkerContext.requestHeaderToMarkerContext
         </td>
         <td style="background: #AEF1AE">
-          AccountController.this.ec
+          AccountController.this.requestHeaderToMarkerContext(request)
         </td>
       </tr><tr>
         <td>
-          83
+          82
         </td>
         <td>
-          156
+          154
         </td>
         <td>
-          2341
+          2306
           -
-          2623
+          2588
         </td>
         <td>
           ApplyToImplicitArgs
@@ -1328,36 +1285,36 @@
         </td>
       </tr><tr>
         <td>
-          83
+          82
         </td>
         <td>
-          144
+          153
         </td>
         <td>
-          2372
+          2349
           -
-          2372
+          2349
         </td>
         <td>
-          ApplyToImplicitArgs
+          Select
         </td>
         <td>
-          controllers.RequestMarkerContext.requestHeaderToMarkerContext
+          controllers.AccountController.ec
         </td>
         <td style="background: #AEF1AE">
-          AccountController.this.requestHeaderToMarkerContext(request)
+          AccountController.this.ec
         </td>
       </tr><tr>
         <td>
-          84
+          83
         </td>
         <td>
-          145
+          143
         </td>
         <td>
-          2406
+          2371
           -
-          2419
+          2384
         </td>
         <td>
           Select
@@ -1370,15 +1327,57 @@
         </td>
       </tr><tr>
         <td>
-          86
+          85
         </td>
         <td>
           146
         </td>
         <td>
-          2481
+          2434
           -
-          2481
+          2434
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.http.DefaultWriteables.writeableOf_JsValue
+        </td>
+        <td style="background: #AEF1AE">
+          http.this.Writeable.writeableOf_JsValue
+        </td>
+      </tr><tr>
+        <td>
+          85
+        </td>
+        <td>
+          145
+        </td>
+        <td>
+          2435
+          -
+          2456
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.libs.json.Json.toJson
+        </td>
+        <td style="background: #AEF1AE">
+          play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites)
+        </td>
+      </tr><tr>
+        <td>
+          85
+        </td>
+        <td>
+          144
+        </td>
+        <td>
+          2446
+          -
+          2446
         </td>
         <td>
           Select
@@ -1397,18 +1396,18 @@
           148
         </td>
         <td>
-          2469
+          2427
           -
-          2469
+          2515
         </td>
         <td>
-          Select
+          Apply
         </td>
         <td>
-          play.api.http.DefaultWriteables.writeableOf_JsValue
+          play.api.mvc.Result.withHeaders
         </td>
         <td style="background: #AEF1AE">
-          http.this.Writeable.writeableOf_JsValue
+          AccountController.this.Created.apply[play.api.libs.json.JsValue](play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites))(http.this.Writeable.writeableOf_JsValue).withHeaders(scala.Predef.ArrowAssoc[String](AccountController.this.LOCATION).-&gt;[String](&quot;/api/v1/balance&quot;))
         </td>
       </tr><tr>
         <td>
@@ -1418,30 +1417,9 @@
           147
         </td>
         <td>
-          2470
+          2485
           -
-          2491
-        </td>
-        <td>
-          ApplyToImplicitArgs
-        </td>
-        <td>
-          play.api.libs.json.Json.toJson
-        </td>
-        <td style="background: #AEF1AE">
-          play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites)
-        </td>
-      </tr><tr>
-        <td>
-          87
-        </td>
-        <td>
-          149
-        </td>
-        <td>
-          2520
-          -
-          2549
+          2514
         </td>
         <td>
           Apply
@@ -1457,33 +1435,12 @@
           87
         </td>
         <td>
-          150
+          149
         </td>
         <td>
-          2462
+          2559
           -
-          2550
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          play.api.mvc.Result.withHeaders
-        </td>
-        <td style="background: #AEF1AE">
-          AccountController.this.Created.apply[play.api.libs.json.JsValue](play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites))(http.this.Writeable.writeableOf_JsValue).withHeaders(scala.Predef.ArrowAssoc[String](AccountController.this.LOCATION).-&gt;[String](&quot;/api/v1/balance&quot;))
-        </td>
-      </tr><tr>
-        <td>
-          88
-        </td>
-        <td>
-          151
-        </td>
-        <td>
-          2594
-          -
-          2594
+          2559
         </td>
         <td>
           Select
@@ -1496,36 +1453,15 @@
         </td>
       </tr><tr>
         <td>
-          88
+          87
         </td>
         <td>
-          154
+          151
         </td>
         <td>
-          2573
+          2547
           -
-          2605
-        </td>
-        <td>
-          ApplyToImplicitArgs
-        </td>
-        <td>
-          play.api.mvc.Results.Status.apply
-        </td>
-        <td style="background: #AEF1AE">
-          AccountController.this.Forbidden.apply[play.api.libs.json.JsValue](play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites))(http.this.Writeable.writeableOf_JsValue)
-        </td>
-      </tr><tr>
-        <td>
-          88
-        </td>
-        <td>
-          153
-        </td>
-        <td>
-          2582
-          -
-          2582
+          2547
         </td>
         <td>
           Select
@@ -1538,15 +1474,15 @@
         </td>
       </tr><tr>
         <td>
-          88
+          87
         </td>
         <td>
-          152
+          150
         </td>
         <td>
-          2583
+          2548
           -
-          2604
+          2569
         </td>
         <td>
           ApplyToImplicitArgs
@@ -1559,36 +1495,36 @@
         </td>
       </tr><tr>
         <td>
-          93
+          87
         </td>
         <td>
-          158
+          152
         </td>
         <td>
-          2672
+          2538
           -
-          2679
+          2570
         </td>
         <td>
-          Apply
+          ApplyToImplicitArgs
         </td>
         <td>
-          controllers.AccountController.success
+          play.api.mvc.Results.Status.apply
         </td>
         <td style="background: #AEF1AE">
-          success(input)
+          AccountController.this.Forbidden.apply[play.api.libs.json.JsValue](play.api.libs.json.Json.toJson[controllers.AccountResource](response)(controllers.this.AccountResource.implicitWrites))(http.this.Writeable.writeableOf_JsValue)
         </td>
       </tr><tr>
         <td>
-          93
+          92
         </td>
         <td>
-          157
+          155
         </td>
         <td>
-          2663
+          2628
           -
-          2670
+          2635
         </td>
         <td>
           Apply
@@ -1601,15 +1537,15 @@
         </td>
       </tr><tr>
         <td>
-          93
+          92
         </td>
         <td>
-          159
+          157
         </td>
         <td>
-          2635
+          2600
           -
-          2680
+          2645
         </td>
         <td>
           Apply
@@ -1623,6 +1559,27 @@
 }, {
   ((input: controllers.AccountFormInput) =&gt; success(input))
 })
+        </td>
+      </tr><tr>
+        <td>
+          92
+        </td>
+        <td>
+          156
+        </td>
+        <td>
+          2637
+          -
+          2644
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          controllers.AccountController.success
+        </td>
+        <td style="background: #AEF1AE">
+          success(input)
         </td>
       </tr>
     </table>
