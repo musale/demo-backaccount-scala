@@ -1,0 +1,598 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          ErrorHandler.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier;'>1 <span style=''>import play.api.http.HttpErrorHandler
+</span>2 <span style=''>import play.api.libs.json._
+</span>3 <span style=''>import play.api.mvc._
+</span>4 <span style=''>import play.api.mvc.Results._
+</span>5 <span style=''>import scala.concurrent.Future
+</span>6 <span style=''>
+</span>7 <span style=''>class ErrorHandler extends HttpErrorHandler {
+</span>8 <span style=''>  private def jsonResponse(statusCode: Int, message: String): JsObject =
+</span>9 <span style=''>    </span><span style='background: #AEF1AE'>Json.obj(
+</span>10 <span style=''></span><span style='background: #AEF1AE'>      &quot;errors&quot; -&gt; Json.arr(
+</span>11 <span style=''></span><span style='background: #AEF1AE'>        Json.obj(
+</span>12 <span style=''></span><span style='background: #AEF1AE'>          &quot;status&quot; -&gt; statusCode,
+</span>13 <span style=''></span><span style='background: #AEF1AE'>          &quot;message&quot; -&gt; message
+</span>14 <span style=''></span><span style='background: #AEF1AE'>        )
+</span>15 <span style=''></span><span style='background: #AEF1AE'>      )
+</span>16 <span style=''></span><span style='background: #AEF1AE'>    )</span><span style=''>
+</span>17 <span style=''>
+</span>18 <span style=''>  def onClientError(
+</span>19 <span style=''>      request: RequestHeader,
+</span>20 <span style=''>      statusCode: Int,
+</span>21 <span style=''>      message: String
+</span>22 <span style=''>  ): Future[Result] = </span><span style='background: #AEF1AE'>Future.successful {
+</span>23 <span style=''></span><span style='background: #AEF1AE'>    Status(statusCode)(jsonResponse(statusCode, message))
+</span>24 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
+</span>25 <span style=''>
+</span>26 <span style=''>  def onServerError(
+</span>27 <span style=''>      request: RequestHeader,
+</span>28 <span style=''>      exception: Throwable
+</span>29 <span style=''>  ): Future[Result] = </span><span style='background: #F0ADAD'>Future.successful {
+</span>30 <span style=''></span><span style='background: #F0ADAD'>    InternalServerError(jsonResponse(500, &quot;Internal server error&quot;))
+</span>31 <span style=''></span><span style='background: #F0ADAD'>  }</span><span style=''>
+</span>32 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          9
+        </td>
+        <td>
+          17
+        </td>
+        <td>
+          273
+          -
+          417
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.api.libs.json.Json.obj
+        </td>
+        <td style="background: #AEF1AE">
+          play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;errors&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsArray](play.api.libs.json.Json.arr(json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites)))(json.this.Writes.JsValueWrites)))
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          14
+        </td>
+        <td>
+          309
+          -
+          309
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.libs.json.DefaultWrites.JsValueWrites
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Writes.JsValueWrites
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          13
+        </td>
+        <td>
+          301
+          -
+          411
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.api.libs.json.Json.arr
+        </td>
+        <td style="background: #AEF1AE">
+          play.api.libs.json.Json.arr(json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites))
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          16
+        </td>
+        <td>
+          289
+          -
+          411
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.ArrowAssoc.-&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.ArrowAssoc[String](&quot;errors&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsArray](play.api.libs.json.Json.arr(json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites)))(json.this.Writes.JsValueWrites))
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          289
+          -
+          297
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;errors&quot;
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          15
+        </td>
+        <td>
+          301
+          -
+          411
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.libs.json.Json.toJsFieldJsValueWrapper
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsArray](play.api.libs.json.Json.arr(json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites)))(json.this.Writes.JsValueWrites)
+        </td>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          11
+        </td>
+        <td>
+          327
+          -
+          327
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.libs.json.DefaultWrites.JsValueWrites
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Writes.JsValueWrites
+        </td>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          10
+        </td>
+        <td>
+          319
+          -
+          403
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play.api.libs.json.Json.obj
+        </td>
+        <td style="background: #AEF1AE">
+          play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites)))
+        </td>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          12
+        </td>
+        <td>
+          319
+          -
+          403
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.libs.json.Json.toJsFieldJsValueWrapper
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Json.toJsFieldJsValueWrapper[play.api.libs.json.JsObject](play.api.libs.json.Json.obj(scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)), scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))))(json.this.Writes.JsValueWrites)
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          339
+          -
+          347
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;status&quot;
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          5
+        </td>
+        <td>
+          339
+          -
+          361
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.ArrowAssoc.-&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.ArrowAssoc[String](&quot;status&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites))
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          4
+        </td>
+        <td>
+          351
+          -
+          361
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.libs.json.Json.toJsFieldJsValueWrapper
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Json.toJsFieldJsValueWrapper[Int](statusCode)(json.this.Writes.IntWrites)
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          3
+        </td>
+        <td>
+          351
+          -
+          351
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.libs.json.DefaultWrites.IntWrites
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Writes.IntWrites
+        </td>
+      </tr><tr>
+        <td>
+          13
+        </td>
+        <td>
+          8
+        </td>
+        <td>
+          386
+          -
+          393
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.libs.json.Json.toJsFieldJsValueWrapper
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites)
+        </td>
+      </tr><tr>
+        <td>
+          13
+        </td>
+        <td>
+          7
+        </td>
+        <td>
+          386
+          -
+          386
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.libs.json.DefaultWrites.StringWrites
+        </td>
+        <td style="background: #AEF1AE">
+          json.this.Writes.StringWrites
+        </td>
+      </tr><tr>
+        <td>
+          13
+        </td>
+        <td>
+          9
+        </td>
+        <td>
+          373
+          -
+          393
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.ArrowAssoc.-&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.ArrowAssoc[String](&quot;message&quot;).-&gt;[play.api.libs.json.Json.JsValueWrapper](json.this.Json.toJsFieldJsValueWrapper[String](message)(json.this.Writes.StringWrites))
+        </td>
+      </tr><tr>
+        <td>
+          13
+        </td>
+        <td>
+          6
+        </td>
+        <td>
+          373
+          -
+          382
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;message&quot;
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          21
+        </td>
+        <td>
+          537
+          -
+          618
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.concurrent.Future.successful
+        </td>
+        <td style="background: #AEF1AE">
+          scala.concurrent.Future.successful[play.api.mvc.Result](play.api.mvc.Results.Status(statusCode).apply[play.api.libs.json.JsObject](ErrorHandler.this.jsonResponse(statusCode, message))(http.this.Writeable.writeableOf_JsValue))
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          20
+        </td>
+        <td>
+          561
+          -
+          614
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.mvc.Results.Status.apply
+        </td>
+        <td style="background: #AEF1AE">
+          play.api.mvc.Results.Status(statusCode).apply[play.api.libs.json.JsObject](ErrorHandler.this.jsonResponse(statusCode, message))(http.this.Writeable.writeableOf_JsValue)
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          19
+        </td>
+        <td>
+          579
+          -
+          579
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.http.DefaultWriteables.writeableOf_JsValue
+        </td>
+        <td style="background: #AEF1AE">
+          http.this.Writeable.writeableOf_JsValue
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          18
+        </td>
+        <td>
+          580
+          -
+          613
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ErrorHandler.jsonResponse
+        </td>
+        <td style="background: #AEF1AE">
+          ErrorHandler.this.jsonResponse(statusCode, message)
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          25
+        </td>
+        <td>
+          720
+          -
+          811
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.concurrent.Future.successful
+        </td>
+        <td style="background: #F0ADAD">
+          scala.concurrent.Future.successful[play.api.mvc.Result](play.api.mvc.Results.InternalServerError.apply[play.api.libs.json.JsObject](ErrorHandler.this.jsonResponse(500, &quot;Internal server error&quot;))(http.this.Writeable.writeableOf_JsValue))
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          23
+        </td>
+        <td>
+          763
+          -
+          763
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          play.api.http.DefaultWriteables.writeableOf_JsValue
+        </td>
+        <td style="background: #F0ADAD">
+          http.this.Writeable.writeableOf_JsValue
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          22
+        </td>
+        <td>
+          764
+          -
+          806
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ErrorHandler.jsonResponse
+        </td>
+        <td style="background: #F0ADAD">
+          ErrorHandler.this.jsonResponse(500, &quot;Internal server error&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          24
+        </td>
+        <td>
+          744
+          -
+          807
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          play.api.mvc.Results.Status.apply
+        </td>
+        <td style="background: #F0ADAD">
+          play.api.mvc.Results.InternalServerError.apply[play.api.libs.json.JsObject](ErrorHandler.this.jsonResponse(500, &quot;Internal server error&quot;))(http.this.Writeable.writeableOf_JsValue)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

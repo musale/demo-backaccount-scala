@@ -1,0 +1,145 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          Module.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier;'>1 <span style=''>import javax.inject._
+</span>2 <span style=''>
+</span>3 <span style=''>import com.google.inject.AbstractModule
+</span>4 <span style=''>import net.codingwell.scalaguice.ScalaModule
+</span>5 <span style=''>import play.api.{Configuration, Environment}
+</span>6 <span style=''>import controllers._
+</span>7 <span style=''>
+</span>8 <span style=''>/**
+</span>9 <span style=''>  * Sets up custom components for Play.
+</span>10 <span style=''>  *
+</span>11 <span style=''>  * https://www.playframework.com/documentation/latest/ScalaDependencyInjection
+</span>12 <span style=''>  */
+</span>13 <span style=''>class Module(environment: Environment, configuration: Configuration)
+</span>14 <span style=''>    extends AbstractModule
+</span>15 <span style=''>    with ScalaModule {
+</span>16 <span style=''>
+</span>17 <span style=''>  override def configure() = {
+</span>18 <span style=''>    </span><span style='background: #AEF1AE'>bind[AccountStore].to[AccountStoreImpl].in[Singleton]</span><span style=''>
+</span>19 <span style=''>  }
+</span>20 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          26
+        </td>
+        <td>
+          467
+          -
+          467
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.reflect.ManifestFactory.classType
+        </td>
+        <td style="background: #AEF1AE">
+          scala.reflect.ManifestFactory.classType[controllers.AccountStore](classOf[controllers.AccountStore])
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          29
+        </td>
+        <td>
+          463
+          -
+          516
+        </td>
+        <td>
+          ApplyToImplicitArgs
+        </td>
+        <td>
+          net.codingwell.scalaguice.ScalaModule.ScalaScopedBindingBuilder.in
+        </td>
+        <td style="background: #AEF1AE">
+          Module.this.bind[controllers.AccountStore](scala.reflect.ManifestFactory.classType[controllers.AccountStore](classOf[controllers.AccountStore])).to[controllers.AccountStoreImpl](scala.reflect.ManifestFactory.classType[controllers.AccountStoreImpl](classOf[controllers.AccountStoreImpl])).in[javax.inject.Singleton]()(scala.reflect.ManifestFactory.classType[javax.inject.Singleton](classOf[javax.inject.Singleton]))
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          28
+        </td>
+        <td>
+          505
+          -
+          505
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.reflect.ManifestFactory.classType
+        </td>
+        <td style="background: #AEF1AE">
+          scala.reflect.ManifestFactory.classType[javax.inject.Singleton](classOf[javax.inject.Singleton])
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          27
+        </td>
+        <td>
+          484
+          -
+          484
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.reflect.ManifestFactory.classType
+        </td>
+        <td style="background: #AEF1AE">
+          scala.reflect.ManifestFactory.classType[controllers.AccountStoreImpl](classOf[controllers.AccountStoreImpl])
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

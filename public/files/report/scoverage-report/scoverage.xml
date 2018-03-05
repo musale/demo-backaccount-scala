@@ -1,0 +1,1662 @@
+<scoverage 
+statement-count="445" statements-invoked="403" statement-rate="90.56" branch-rate="83.33" version="1.0" timestamp="1520801738765">
+    <packages>
+        <package name="&lt;empty&gt;" statement-count="29" statements-invoked="25" statement-rate="86.21">
+            <classes>
+                <class 
+                name="Module" filename="Module.scala" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="&lt;empty&gt;/Module/configure" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="&lt;empty&gt;" class="Module" class-type="Class" full-class-name="Module" source="/home/user0/Projects/bank-account/app/Module.scala" method="configure" start="467" end="467" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="Module" class-type="Class" full-class-name="Module" source="/home/user0/Projects/bank-account/app/Module.scala" method="configure" start="463" end="516" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="Module" class-type="Class" full-class-name="Module" source="/home/user0/Projects/bank-account/app/Module.scala" method="configure" start="505" end="505" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="Module" class-type="Class" full-class-name="Module" source="/home/user0/Projects/bank-account/app/Module.scala" method="configure" start="484" end="484" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="ErrorHandler" filename="ErrorHandler.scala" statement-count="25" statements-invoked="21" statement-rate="84.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="&lt;empty&gt;/ErrorHandler/onClientError" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="onClientError" start="561" end="614" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="onClientError" start="579" end="579" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="onClientError" start="580" end="613" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="onClientError" start="537" end="618" line="22" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="&lt;empty&gt;/ErrorHandler/onServerError" statement-count="4" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="onServerError" start="763" end="763" line="30" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="onServerError" start="764" end="806" line="30" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="onServerError" start="720" end="811" line="29" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="onServerError" start="744" end="807" line="30" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="&lt;empty&gt;/ErrorHandler/jsonResponse" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="386" end="393" line="13" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="273" end="417" line="9" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="327" end="327" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="339" end="347" line="12" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="339" end="361" line="12" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="309" end="309" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="351" end="361" line="12" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="301" end="411" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="289" end="411" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="386" end="386" line="13" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="319" end="403" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="289" end="297" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="373" end="393" line="13" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="351" end="351" line="12" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="319" end="403" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="301" end="411" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="&lt;empty&gt;" class="ErrorHandler" class-type="Class" full-class-name="ErrorHandler" source="/home/user0/Projects/bank-account/app/ErrorHandler.scala" method="jsonResponse" start="373" end="382" line="13" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="controllers" statement-count="386" statements-invoked="363" statement-rate="94.04">
+            <classes>
+                <class 
+                name="controllers.AccountResource" filename="controllers/AccountResource.scala" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/AccountResource/writes" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="551" end="566" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="634" end="634" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="589" end="605" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="521" end="646" line="22" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="539" end="547" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="589" end="605" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="560" end="560" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="625" end="638" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="576" end="585" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="615" end="638" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="625" end="638" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="539" end="566" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="430" end="433" line="20" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="598" end="598" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="615" end="621" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="551" end="566" line="23" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResource" class-type="Class" full-class-name="controllers.AccountResource" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="writes" start="576" end="605" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.AccountActionBuilder" filename="controllers/AccountActionBuilder.scala" statement-count="15" statements-invoked="15" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/AccountActionBuilder/invokeBlock" statement-count="12" statements-invoked="12" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2260" end="2294" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2133" end="2144" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2152" end="2348" line="64" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2181" end="2195" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2099" end="2146" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2279" end="2294" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2050" end="2080" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2163" end="2163" line="64" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2241" end="2295" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2105" end="2145" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2260" end="2275" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="invokeBlock" start="2001" end="2045" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountActionBuilder/&lt;none&gt;" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="&lt;none&gt;" start="1740" end="1761" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="&lt;none&gt;" start="1747" end="1760" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountActionBuilder" class-type="Class" full-class-name="controllers.AccountActionBuilder" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="&lt;none&gt;" start="1620" end="1646" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.RequestMarkerContext" filename="controllers/AccountActionBuilder.scala" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/RequestMarkerContext/requestHeaderToMarkerContext" statement-count="14" statements-invoked="14" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1106" end="1166" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1121" end="1131" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1186" end="1226" line="35" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1143" end="1149" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1084" end="1233" line="33" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1106" end="1227" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1136" end="1166" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1205" end="1226" line="35" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1113" end="1117" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1106" end="1132" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1170" end="1227" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1113" end="1131" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1143" end="1165" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="requestHeaderToMarkerContext" start="1186" end="1201" line="35" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/RequestMarkerContext/marker" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="marker" start="790" end="824" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="marker" start="815" end="823" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="RequestMarkerContext" class-type="Trait" full-class-name="controllers.RequestMarkerContext" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="marker" start="805" end="813" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.AccountController" filename="controllers/AccountController.scala" statement-count="68" statements-invoked="67" statement-rate="98.53" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/AccountController/deposit" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="deposit" start="1075" end="1141" line="41" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="deposit" start="1121" end="1137" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountController/success" statement-count="32" statements-invoked="32" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1820" end="1841" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1692" end="1973" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2371" end="2384" line="83" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2538" end="2570" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1812" end="1900" line="66" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2628" end="2635" line="92" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2434" end="2434" line="85" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1985" end="2030" line="72" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2559" end="2559" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1722" end="1722" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1932" end="1932" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2427" end="2515" line="86" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1933" end="1954" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2600" end="2645" line="92" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2337" end="2337" line="82" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2547" end="2547" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1831" end="1831" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1734" end="1734" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2306" end="2588" line="82" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2435" end="2456" line="85" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1870" end="1899" line="66" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2022" end="2029" line="72" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2349" end="2349" line="82" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2446" end="2446" line="85" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2637" end="2644" line="92" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1944" end="1944" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2485" end="2514" line="86" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1756" end="1769" line="63" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2548" end="2569" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1923" end="1955" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="1819" end="1819" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="success" start="2013" end="2020" line="72" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountController/withdraw" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="withdraw" start="1180" end="1249" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="withdraw" start="1226" end="1245" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountController/failure" statement-count="8" statements-invoked="8" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="failure" start="1610" end="1610" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="failure" start="2214" end="2246" line="78" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="failure" start="2224" end="2224" line="78" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="failure" start="1611" end="1631" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="failure" start="1582" end="1633" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="failure" start="1600" end="1632" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="failure" start="2225" end="2245" line="78" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="failure" start="2196" end="2247" line="78" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountController/&lt;none&gt;" statement-count="16" statements-invoked="15" statement-rate="93.75" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="916" end="966" line="36" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="698" end="703" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="899" end="1027" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="805" end="861" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="592" end="882" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="778" end="863" line="30" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="669" end="687" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="928" end="966" line="36" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="999" end="1026" line="37" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="821" end="860" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="669" end="703" line="25" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="975" end="997" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="801" end="862" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="887" end="1033" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="916" end="924" line="36" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="&lt;none&gt;" start="603" end="628" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountController/balance" statement-count="8" statements-invoked="8" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="balance" start="1335" end="1419" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="balance" start="1358" end="1358" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="balance" start="1391" end="1391" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="balance" start="1370" end="1370" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="balance" start="1392" end="1412" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="balance" start="1403" end="1403" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="balance" start="1389" end="1413" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountController" class-type="Class" full-class-name="controllers.AccountController" source="/home/user0/Projects/bank-account/app/controllers/AccountController.scala" method="balance" start="1289" end="1423" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.AccountResourceHandler" filename="controllers/AccountResource.scala" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/AccountResourceHandler/balance" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="balance" start="1415" end="1486" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="balance" start="1437" end="1437" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="balance" start="1453" end="1480" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountResourceHandler/createAccountResource" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="createAccountResource" start="1585" end="1595" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="createAccountResource" start="1569" end="1619" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="createAccountResource" start="1610" end="1618" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="createAccountResource" start="1597" end="1608" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountResourceHandler/withdraw" statement-count="5" statements-invoked="5" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="withdraw" start="1299" end="1326" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="withdraw" start="1226" end="1332" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="withdraw" start="1243" end="1277" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="withdraw" start="1257" end="1276" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="withdraw" start="1283" end="1283" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountResourceHandler/deposit" statement-count="5" statements-invoked="5" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="deposit" start="1000" end="1105" line="40" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="deposit" start="1030" end="1049" line="40" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="deposit" start="1056" end="1056" line="40" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="deposit" start="1072" end="1099" line="41" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountResourceHandler" class-type="Class" full-class-name="controllers.AccountResourceHandler" source="/home/user0/Projects/bank-account/app/controllers/AccountResource.scala" method="deposit" start="1016" end="1050" line="40" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.AccountBaseController" filename="controllers/AccountActionBuilder.scala" statement-count="3" statements-invoked="2" statement-rate="66.67" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/AccountBaseController/controllerComponents" statement-count="1" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountBaseController" class-type="Class" full-class-name="controllers.AccountBaseController" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="controllerComponents" start="3127" end="3130" line="91" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountBaseController/accountResourceHandler" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountBaseController" class-type="Class" full-class-name="controllers.AccountBaseController" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="accountResourceHandler" start="3257" end="3283" line="95" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountBaseController/AccountAction" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountBaseController" class-type="Class" full-class-name="controllers.AccountBaseController" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="AccountAction" start="3176" end="3200" line="93" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.AccountStoreImpl" filename="controllers/AccountStore.scala" statement-count="187" statements-invoked="166" statement-rate="88.77" branch-rate="85.19">
+                    <methods>
+                        <method 
+                        name="controllers/AccountStoreImpl/midnightEpoch" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="midnightEpoch" start="2865" end="2880" line="106" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="midnightEpoch" start="2730" end="2860" line="105" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountStoreImpl/balance" statement-count="13" statements-invoked="13" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4128" end="4142" line="147" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4304" end="4351" line="152" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4234" end="4238" line="150" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4225" end="4280" line="150" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4276" end="4279" line="150" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4032" end="4056" line="145" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4304" end="4351" line="152" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4017" end="4365" line="144" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4197" end="4216" line="149" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4153" end="4171" line="148" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4024" end="4024" line="144" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4240" end="4274" line="150" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="balance" start="4173" end="4288" line="148" branch="true" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountStoreImpl/deposit" statement-count="62" statements-invoked="52" statement-rate="83.87" branch-rate="80.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5276" end="5312" line="180" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6365" end="6388" line="211" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6333" end="6620" line="210" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4716" end="4742" line="166" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4975" end="4990" line="173" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5639" end="5656" line="191" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6030" end="6033" line="200" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5210" end="5210" line="179" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5143" end="5156" line="177" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4505" end="4505" line="160" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6101" end="6139" line="203" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6411" end="6462" line="212" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5783" end="5786" line="194" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4874" end="4889" line="169" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5856" end="5902" line="197" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5200" end="5203" line="178" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6562" end="6606" line="215" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4513" end="4555" line="161" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4749" end="4749" line="167" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6278" end="6281" line="207" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5500" end="5505" line="186" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5019" end="5157" line="177" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6556" end="6560" line="215" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5422" end="5444" line="184" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5668" end="5787" line="192" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6190" end="6266" line="206" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5566" end="5581" line="188" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4975" end="4981" line="173" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5276" end="5303" line="180" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4684" end="4687" line="165" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6151" end="6282" line="204" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6547" end="6612" line="215" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5949" end="6011" line="199" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5210" end="5210" line="179" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6452" end="6461" line="212" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5852" end="6620" line="197" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4816" end="4833" line="168" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5914" end="6034" line="198" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5086" end="5110" line="176" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5703" end="5764" line="193" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4778" end="4907" line="167" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6423" end="6439" line="212" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6097" end="6620" line="203" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5914" end="6034" line="198" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4498" end="6626" line="160" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5668" end="5787" line="192" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5128" end="5156" line="177" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6171" end="6178" line="205" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6518" end="6538" line="214" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5389" end="5390" line="183" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4860" end="4899" line="169" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6608" end="6611" line="215" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5923" end="5930" line="198" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="6151" end="6282" line="204" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5214" end="5240" line="179" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5500" end="5514" line="186" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4632" end="4646" line="163" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4749" end="4749" line="167" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5677" end="5684" line="192" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="4753" end="4776" line="167" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5048" end="5068" line="175" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="deposit" start="5252" end="5312" line="180" branch="true" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountStoreImpl/withdraw" statement-count="71" statements-invoked="66" statement-rate="92.96" branch-rate="91.67">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9284" end="9288" line="291" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="6771" end="9405" line="223" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8670" end="8738" line="275" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9275" end="9391" line="291" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7585" end="7605" line="243" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7635" end="7635" line="245" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8879" end="9009" line="280" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8173" end="8280" line="260" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="6906" end="6920" line="226" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7022" end="7022" line="229" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8631" end="8754" line="273" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7639" end="7668" line="245" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9179" end="9189" line="288" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7913" end="7928" line="252" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7026" end="7049" line="229" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7346" end="7367" line="236" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8577" end="9399" line="272" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8428" end="8492" line="268" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8389" end="8508" line="266" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8918" end="8993" line="282" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7704" end="7758" line="246" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8049" end="8063" line="256" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7133" end="7172" line="231" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7427" end="7455" line="238" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7719" end="7758" line="246" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8389" end="8508" line="266" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="6778" end="6778" line="223" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8899" end="8906" line="281" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9246" end="9266" line="290" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8049" end="8054" line="256" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7442" end="7455" line="238" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8879" end="9009" line="280" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9387" end="9390" line="293" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8173" end="8280" line="260" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7022" end="7022" line="229" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8651" end="8658" line="274" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="6786" end="6829" line="224" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7635" end="7635" line="245" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7499" end="7502" line="239" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7252" end="7266" line="234" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="6989" end="7015" line="228" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8631" end="8754" line="273" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9150" end="9166" line="288" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7869" end="7894" line="251" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8825" end="9399" line="279" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8409" end="8416" line="267" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7565" end="7627" line="243" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7147" end="7162" line="231" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8360" end="8377" line="265" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8750" end="8753" line="276" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9092" end="9115" line="287" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9060" end="9399" line="286" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9138" end="9190" line="288" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8504" end="8507" line="269" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8829" end="8867" line="279" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7963" end="7992" line="253" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8356" end="9399" line="265" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7385" end="7409" line="237" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7719" end="7749" line="246" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7089" end="7106" line="230" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8581" end="8619" line="272" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7317" end="7456" line="238" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7051" end="7180" line="229" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="8138" end="8161" line="259" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7680" end="7758" line="246" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9005" end="9008" line="283" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="9307" end="9368" line="292" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7252" end="7257" line="234" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7836" end="7837" line="250" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="6957" end="6960" line="227" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="withdraw" start="7565" end="7618" line="243" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountStoreImpl/writeTofile" statement-count="8" statements-invoked="8" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writeTofile" start="3031" end="3031" line="111" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writeTofile" start="2947" end="3000" line="110" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writeTofile" start="3005" end="3041" line="111" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writeTofile" start="2984" end="2992" line="110" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writeTofile" start="2963" end="2999" line="110" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writeTofile" start="3020" end="3040" line="111" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writeTofile" start="3046" end="3060" line="112" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writeTofile" start="2994" end="2998" line="110" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountStoreImpl/readFromFile" statement-count="21" statements-invoked="17" statement-rate="80.95" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3455" end="3460" line="123" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3173" end="3654" line="117" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3327" end="3365" line="121" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3719" end="3755" line="134" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3561" end="3590" line="127" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3192" end="3217" line="118" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3548" end="3598" line="127" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3836" end="3865" line="136" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3208" end="3216" line="118" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3560" end="3560" line="127" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3783" end="3808" line="135" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3352" end="3352" line="121" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3635" end="3654" line="131" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3473" end="3492" line="124" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3750" end="3754" line="134" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3740" end="3748" line="134" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3592" end="3597" line="127" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3799" end="3807" line="135" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3279" end="3620" line="120" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3874" end="3893" line="137" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="readFromFile" start="3243" end="3272" line="119" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountStoreImpl/getFilename" statement-count="6" statements-invoked="4" statement-rate="66.67" branch-rate="50.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="getFilename" start="2608" end="2630" line="93" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="getFilename" start="2608" end="2630" line="93" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="getFilename" start="2650" end="2667" line="95" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="getFilename" start="2577" end="2598" line="92" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="getFilename" start="2650" end="2667" line="95" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="getFilename" start="2589" end="2598" line="92" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountStoreImpl/&lt;none&gt;" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="2436" end="2449" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="2522" end="2535" line="89" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="2481" end="2496" line="88" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountStoreImpl" class-type="Class" full-class-name="controllers.AccountStoreImpl" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="2429" end="2450" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.Response" filename="controllers/AccountStore.scala" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/Response/writes" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1423" end="1431" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1363" end="1363" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1347" end="1369" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1423" end="1431" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1257" end="1260" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1396" end="1396" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1359" end="1369" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1413" end="1419" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1347" end="1355" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1379" end="1403" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1359" end="1369" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1427" end="1427" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1392" end="1403" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1329" end="1439" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1413" end="1431" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1379" end="1388" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="Response" class-type="Class" full-class-name="controllers.Response" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="1392" end="1403" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.AccountData" filename="controllers/AccountStore.scala" statement-count="34" statements-invoked="34" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/AccountData/writes" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="821" end="829" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="857" end="889" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="833" end="847" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="918" end="918" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="910" end="923" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="841" end="841" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="857" end="868" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="899" end="923" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="872" end="889" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="721" end="724" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="880" end="880" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="833" end="847" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="899" end="906" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="910" end="923" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="821" end="847" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="872" end="889" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Class" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="writes" start="803" end="931" line="26" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountData/&lt;none&gt;" statement-count="17" statements-invoked="17" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1106" end="1106" line="36" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1020" end="1020" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1020" end="1020" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1020" end="1020" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1119" end="1136" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1118" end="1118" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1049" end="1060" line="35" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1093" end="1100" line="36" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1006" end="1014" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1040" end="1072" line="35" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="997" end="1028" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1084" end="1114" line="36" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1020" end="1020" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1118" end="1118" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1118" end="1118" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="1066" end="1066" line="35" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountData" class-type="Object" full-class-name="controllers.AccountData" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="&lt;none&gt;" start="990" end="1139" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.AccountAmount" filename="controllers/AccountStore.scala" statement-count="5" statements-invoked="5" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/AccountAmount/apply" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountAmount" class-type="Object" full-class-name="controllers.AccountAmount" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="apply" start="1686" end="1706" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountAmount" class-type="Object" full-class-name="controllers.AccountAmount" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="apply" start="1694" end="1705" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountAmount" class-type="Object" full-class-name="controllers.AccountAmount" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="apply" start="1711" end="1733" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountAmount/toDouble" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountAmount" class-type="Class" full-class-name="controllers.AccountAmount" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="toDouble" start="1596" end="1611" line="55" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountAmount" class-type="Class" full-class-name="controllers.AccountAmount" source="/home/user0/Projects/bank-account/app/controllers/AccountStore.scala" method="toDouble" start="1596" end="1602" line="55" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.AccountRouter" filename="controllers/AccountRouter.scala" statement-count="5" statements-invoked="5" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/AccountRouter/&lt;none&gt;" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountRouter" class-type="Class" full-class-name="controllers.AccountRouter" source="/home/user0/Projects/bank-account/app/controllers/AccountRouter.scala" method="&lt;none&gt;" start="323" end="332" line="14" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="controllers/AccountRouter/routes" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="AccountRouter" class-type="Class" full-class-name="controllers.AccountRouter" source="/home/user0/Projects/bank-account/app/controllers/AccountRouter.scala" method="routes" start="403" end="421" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountRouter" class-type="Class" full-class-name="controllers.AccountRouter" source="/home/user0/Projects/bank-account/app/controllers/AccountRouter.scala" method="routes" start="366" end="366" line="16" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountRouter" class-type="Class" full-class-name="controllers.AccountRouter" source="/home/user0/Projects/bank-account/app/controllers/AccountRouter.scala" method="routes" start="516" end="535" line="24" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="controllers" class="AccountRouter" class-type="Class" full-class-name="controllers.AccountRouter" source="/home/user0/Projects/bank-account/app/controllers/AccountRouter.scala" method="routes" start="459" end="477" line="21" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="controllers.RequestMarkerContext.RichLogstashMarker" filename="controllers/AccountActionBuilder.scala" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="controllers/RichLogstashMarker/&amp;&amp;" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="controllers" class="RichLogstashMarker" class-type="Class" full-class-name="controllers.RequestMarkerContext.RichLogstashMarker" source="/home/user0/Projects/bank-account/app/controllers/AccountActionBuilder.scala" method="&amp;&amp;" start="951" end="971" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="router" statement-count="30" statements-invoked="15" statement-rate="50.00">
+            <classes>
+                <class 
+                name="router.Routes" filename="router/Routes.scala" statement-count="26" statements-invoked="13" statement-rate="50.00" branch-rate="50.00">
+                    <methods>
+                        <method 
+                        name="router/Routes/&lt;init&gt;" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;init&gt;" start="648" end="648" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;init&gt;" start="648" end="700" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="router/Routes/documentation" statement-count="11" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="1171" end="1214" line="40" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="1229" end="1278" line="41" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="990" end="1049" line="37" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="1119" end="1138" line="39" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="1072" end="1106" line="39" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="1173" end="1173" line="40" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="1231" end="1231" line="41" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="980" end="1283" line="39" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="1055" end="1058" line="38" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="1176" end="1214" line="40" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="documentation" start="1234" end="1278" line="41" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="router/Routes/&lt;none&gt;" statement-count="8" statements-invoked="6" statement-rate="75.00" branch-rate="50.00">
+                            <statements>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;none&gt;" start="941" end="943" line="33" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;none&gt;" start="1368" end="1477" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;none&gt;" start="1407" end="1476" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;none&gt;" start="941" end="943" line="33" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;none&gt;" start="949" end="952" line="33" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;none&gt;" start="914" end="939" line="33" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;none&gt;" start="1360" end="1478" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="&lt;none&gt;" start="949" end="952" line="33" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="router/Routes/withPrefix" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="withPrefix" start="751" end="788" line="28" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="withPrefix" start="793" end="854" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="withPrefix" start="818" end="845" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="withPrefix" start="804" end="816" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="router/Routes/routes" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="router" class="Routes" class-type="Class" full-class-name="router.Routes" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/Routes.scala" method="routes" start="1537" end="1537" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="router.RoutesPrefix" filename="router/RoutesPrefix.scala" statement-count="4" statements-invoked="2" statement-rate="50.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="router/RoutesPrefix/&lt;none&gt;" statement-count="2" statements-invoked="1" statement-rate="50.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="router" class="RoutesPrefix" class-type="Object" full-class-name="router.RoutesPrefix" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/RoutesPrefix.scala" method="&lt;none&gt;" start="207" end="210" line="8" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="router" class="RoutesPrefix" class-type="Object" full-class-name="router.RoutesPrefix" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/RoutesPrefix.scala" method="&lt;none&gt;" start="357" end="363" line="13" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="router/RoutesPrefix/setPrefix" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="router" class="RoutesPrefix" class-type="Object" full-class-name="router.RoutesPrefix" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/RoutesPrefix.scala" method="setPrefix" start="256" end="267" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="router/RoutesPrefix/prefix" statement-count="1" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="router" class="RoutesPrefix" class-type="Object" full-class-name="router.RoutesPrefix" source="/home/user0/Projects/bank-account/target/scala-2.12/routes/main/router/RoutesPrefix.scala" method="prefix" start="299" end="306" line="12" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+    </packages>
+</scoverage>
