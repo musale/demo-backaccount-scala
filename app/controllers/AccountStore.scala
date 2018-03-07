@@ -17,7 +17,7 @@ import scala.concurrent.Future
 import scala.io.Source
 
 // Account is already for a single user. Get amount to deposit/withdraw
-// ttypes can be initial, withdraw or deposit
+// ttypes are transaction types and can be withdraw or deposit
 final case class AccountData(amount: String, timestamp: Long, ttype: String)
 
 object AccountData {
@@ -37,7 +37,10 @@ object AccountData {
   )(AccountData.apply _)
 }
 
+// Generic class for a HTTP response
 case class Response(status: String, message: String, code: Int)
+
+// Write Response to json
 object Response {
   implicit val implicitWrites = new Writes[Response] {
     def writes(res: Response): JsValue = {
@@ -65,9 +68,7 @@ object AccountAmount {
 class AccountExecutionContext @Inject()(actorSystem: ActorSystem)
     extends CustomExecutionContext(actorSystem, "repository.dispatcher")
 
-/**
-  * A pure non-blocking interface for the AccountStore.
-  */
+// A pure non-blocking interface for the AccountStore.
 trait AccountStore {
   def balance()(implicit mc: MarkerContext): Future[Response]
   def deposit(amount: AccountAmount)(
@@ -76,9 +77,7 @@ trait AccountStore {
       implicit mc: MarkerContext): Future[Response]
 }
 
-/**
-  * A trivial implementation for the AccountStore.
-  */
+// A trivial implementation for the AccountStore.
 @Singleton
 class AccountStoreImpl @Inject()(env: Environment)(
     implicit ec: AccountExecutionContext)
@@ -88,6 +87,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
   private val midnightstamp = midnightEpoch()
   private val filename = getFilename()
 
+  // Get the file to persist transactions based on env
   def getFilename(): String = {
     if (env.mode == Mode.Test) {
       "transactions.test.db"
@@ -96,6 +96,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
     }
   }
 
+  // Get the start of current day (midnight)
   def midnightEpoch(): Long = {
     var midnight = LocalDate
       .now()
@@ -106,12 +107,14 @@ class AccountStoreImpl @Inject()(env: Environment)(
     midnight / 1000
   }
 
+  // Write transactions to file
   def writeTofile(account: AccountData) = {
     val writer = new PrintWriter(new FileOutputStream(filename, true))
     writer.println(Json.toJson(account))
     writer.close()
   }
 
+  // Read transactions from file
   def readFromFile(): List[AccountData] = {
     import scala.collection.mutable.ListBuffer
     try {
@@ -149,6 +152,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
         val balance = account.last.amount
         Response("OK", s"account balance is USD $balance", 200)
       } else {
+        // No deposit has been made
         Response("OK", "account balance is USD 0", 200)
       }
     }
@@ -184,7 +188,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val total_transactions = todays_deposits.length
       // Max input is USD 40,000
       val MAX_INPUT = 40000.toDouble
-      // Amount should be string
+
       val input = amount.toDouble
 
       // deposit a max of 40k per transaction
