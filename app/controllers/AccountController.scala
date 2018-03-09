@@ -3,9 +3,11 @@ package controllers
 import javax.inject.Inject
 
 import play.api.data.Form
+import play.api.data.Forms._
 import play.api.mvc._
 import play.api.libs.json._
 import play.api.data.validation._
+import scala.util.{Try, Success, Failure}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -19,16 +21,18 @@ class AccountController @Inject()(cc: AccountControllerComponents)(
     extends AccountBaseController(cc) {
 
   private val form: Form[AccountFormInput] = {
-    import play.api.data.Forms._
+    def validateFormValue(value: String): Try[Double] = {
+      Try(value.toDouble)
+    }
     val amountCheckConstraints: Constraint[String] =
       Constraint("constraints.amountcheck")({ plainText =>
-        try {
-          plainText.toDouble
-          Valid
-        } catch {
-          case ex: NumberFormatException =>
+        validateFormValue(plainText) match {
+          case Success(v) => Valid
+          case Failure(f) => {
             Invalid(
               Seq(ValidationError(s"amount $plainText should be a Number")))
+          }
+
         }
       })
     Form(
