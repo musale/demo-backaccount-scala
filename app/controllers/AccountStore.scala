@@ -1,18 +1,13 @@
 package controllers
 
-import java.io._
-import java.time.Instant
-import java.time.LocalDate
-import java.time.LocalTime
-import java.time.ZoneId
-import java.time.ZoneOffset
-import javax.inject.{Inject, Singleton}
 import akka.actor.ActorSystem
+import java.io._
+import java.time.{Instant, LocalDate, LocalTime, ZoneId, ZoneOffset}
+import javax.inject.{Inject, Singleton}
 import play.api.libs.concurrent.CustomExecutionContext
-import play.api.{Logger, MarkerContext}
+import play.api.{Logger, MarkerContext, Environment, Mode}
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
-import play.api._
 import scala.concurrent.Future
 import scala.io.Source
 
