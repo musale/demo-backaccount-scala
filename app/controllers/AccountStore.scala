@@ -10,6 +10,8 @@ import play.api.libs.json._
 import play.api.libs.functional.syntax._
 import scala.concurrent.Future
 import scala.io.Source
+import scala.collection.mutable.ListBuffer
+import scala.util.{Try, Success, Failure}
 
 // Account is already for a single user. Get amount to deposit/withdraw
 // ttypes are transaction types and can be withdraw or deposit
@@ -93,7 +95,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
 
   // Get the start of current day (midnight)
   def midnightEpoch(): Long = {
-    var midnight = LocalDate
+    val midnight = LocalDate
       .now()
       .atTime(LocalTime.MIN)
       .atZone(ZoneId.systemDefault())
@@ -110,28 +112,30 @@ class AccountStoreImpl @Inject()(env: Environment)(
   }
 
   // Read transactions from file
+  def readFileHelper(): Try[Source] = {
+    Try(Source.fromFile(filename))
+  }
   def readFromFile(): List[AccountData] = {
-    import scala.collection.mutable.ListBuffer
-    try {
-      val account_data = Source.fromFile(filename)
-      var account_list = new ListBuffer[AccountData]()
-      for (line <- account_data.getLines()) {
-        Json.parse(line).validate[AccountData] match {
-          case s: JsSuccess[AccountData] => {
-            val acc: AccountData = s.get
-            account_list += acc
-          }
-          case e: JsError => {
-            logger.error("error reading from file: %s", e.get)
+    readFileHelper() match {
+      case Success(account_data) => {
+        var account_list = new ListBuffer[AccountData]()
+        for (line <- account_data.getLines()) {
+          Json.parse(line).validate[AccountData] match {
+            case s: JsSuccess[AccountData] => {
+              val acc: AccountData = s.get
+              account_list += acc
+            }
+            case e: JsError => {
+              logger.error("error reading from file: %s", e.get)
+            }
           }
         }
+        account_list.toList
       }
-      account_list.toList
-    } catch {
-      case ex: FileNotFoundException => {
+      case Failure(f) => {
         new FileOutputStream(filename, true)
         val account_data = Source.fromFile(filename)
-        var account_list = new ListBuffer[AccountData]()
+        val account_list = new ListBuffer[AccountData]()
         account_list.toList
       }
     }
@@ -161,12 +165,8 @@ class AccountStoreImpl @Inject()(env: Environment)(
       // get the current transaction from the list
       val transactions = readFromFile()
 
-      var previous_amount: Double = 0.0
+      val previous_amount = getPreviousAmount(transactions)
       val timestamp: Long = Instant.now.getEpochSecond
-      if (!(transactions.isEmpty)) {
-        val previous: AccountData = transactions.last
-        previous_amount = AccountAmount(previous.amount).toDouble
-      }
 
       // Max daily deposit is USD 150,000
       val MAX_DEPOSIT = 150000.toDouble
@@ -174,10 +174,8 @@ class AccountStoreImpl @Inject()(env: Environment)(
         .filter(_.ttype == "Deposit")
         .filter(_.timestamp <= timestamp)
         .filter(_.timestamp >= midnightstamp)
-      var todays_deposits_total: Double = 0.0
-      if (!(todays_deposits.isEmpty)) {
-        todays_deposits_total = todays_deposits.last.amount.toDouble
-      }
+      val todays_deposits_total: Double = getTodaysTotalDeposit(todays_deposits)
+
       // Max transactions per day is 4
       val MAX_TRANSACTIONS = 4
       val total_transactions = todays_deposits.length
@@ -186,34 +184,76 @@ class AccountStoreImpl @Inject()(env: Environment)(
 
       val input = amount.toDouble
 
-      // deposit a max of 40k per transaction
-      if (input > MAX_INPUT) {
-        Response("error",
-                 s"exceeded maximum deposit of USD $MAX_INPUT per transaction",
-                 403)
-      }
-      // deposit a total max of 150k per day
-      else if ((todays_deposits_total + input) >= MAX_DEPOSIT) {
-        Response("error",
-                 s"exceeded maximum deposit amount of USD $MAX_DEPOSIT per day",
-                 403)
-      }
-      // deposit in a max of 4 transations
-      else if (total_transactions >= MAX_TRANSACTIONS) {
-        Response(
-          "error",
-          s"exceeded maximum deposit frequency of USD $MAX_TRANSACTIONS times per day",
-          403)
-      }
-      // all conditions passed
-      else {
-        val current: Double = previous_amount + input
-        val account = AccountData(current.toString, timestamp, "Deposit")
-        // Add the transaction to transactions
-        writeTofile(account)
-        Response("OK", s"new balance after deposit is USD $current", 201)
-      }
+      validateDeposit(input,
+                      MAX_INPUT,
+                      todays_deposits_total,
+                      MAX_DEPOSIT,
+                      total_transactions,
+                      MAX_TRANSACTIONS,
+                      previous_amount,
+                      timestamp)
     }
+  }
+
+  // Run validations for a deposit and return appropriate Response
+  def validateDeposit(input: Double,
+                      max_input: Double,
+                      todays_deposits_total: Double,
+                      max_deposit: Double,
+                      total_transactions: Double,
+                      max_transactions: Double,
+                      previous_amount: Double,
+                      timestamp: Long): Response = {
+    // deposit a max of 40k per transaction
+    if (input > max_input) {
+      Response("error",
+               s"exceeded maximum deposit of USD $max_input per transaction",
+               403)
+    }
+    // deposit a total max of 150k per day
+    else if ((todays_deposits_total + input) >= max_deposit) {
+      Response("error",
+               s"exceeded maximum deposit amount of USD $max_deposit per day",
+               403)
+    }
+    // deposit in a max of 4 transations
+    else if (total_transactions >= max_transactions) {
+      Response(
+        "error",
+        s"exceeded maximum deposit frequency of USD $max_transactions times per day",
+        403)
+    }
+    // all conditions passed
+    else {
+      val current: Double = previous_amount + input
+      val account = AccountData(current.toString, timestamp, "Deposit")
+      // Add the transaction to transactions
+      writeTofile(account)
+      Response("OK", s"new balance after deposit is USD $current", 201)
+    }
+  }
+
+  // Get previous transactions amount
+  def getPreviousAmount(transactions: List[AccountData]): Double = {
+    if (!(transactions.isEmpty)) {
+      val previous: AccountData = transactions.last
+      AccountAmount(previous.amount).toDouble
+    } else 0.0
+  }
+
+  // Get the total withdrawn today
+  def getTodaysTotalWithdrawal(transactions: List[AccountData],
+                               last_deposit: Double): Double = {
+    if (!(transactions.isEmpty)) {
+      last_deposit - transactions.last.amount.toDouble
+    } else 0.0
+  }
+
+  // Get the total deposited today
+  def getTodaysTotalDeposit(transactions: List[AccountData]): Double = {
+    if (!(transactions.isEmpty)) {
+      transactions.last.amount.toDouble
+    } else 0.0
   }
 
   // Withdraw from the account
@@ -223,27 +263,21 @@ class AccountStoreImpl @Inject()(env: Environment)(
       logger.trace(s"withdraw: amount = $amount")
       // get the current transaction from the list
       val transactions = readFromFile()
-      var previous_amount: Double = 0.0
       val timestamp: Long = Instant.now.getEpochSecond
-      if (!(transactions.isEmpty)) {
-        val previous: AccountData = transactions.last
-        previous_amount = AccountAmount(previous.amount).toDouble
-      }
+      val previous_amount = getPreviousAmount(transactions: List[AccountData])
       // Max daily withdrawal is USD 50,000
       val MAX_WITHDRAWAL = 50000.toDouble
       val todays_withdrawals: List[AccountData] = transactions
         .filter(_.ttype == "Withdraw")
         .filter(_.timestamp <= timestamp)
         .filter(_.timestamp >= midnightstamp)
-      var todays_withdraw_total: Double = 0.0;
 
       // Last deposit made
       val last_deposit =
         transactions.filter(_.ttype == "Deposit").last.amount.toDouble
 
-      if (!(todays_withdrawals.isEmpty)) {
-        todays_withdraw_total = last_deposit - todays_withdrawals.last.amount.toDouble
-      }
+      val todays_withdraw_total: Double =
+        getTodaysTotalWithdrawal(todays_withdrawals, last_deposit)
 
       // Max transactions per day is 3
       val MAX_TRANSACTIONS = 3
@@ -254,43 +288,59 @@ class AccountStoreImpl @Inject()(env: Environment)(
       // Max input is USD 20,000
       val MAX_INPUT = 20000.toDouble
 
-      // withdrawal amount should be less than current balance
-      if (input > previous_amount) {
-        Response("error",
-                 "account balance is lower than withdrawal amount",
-                 403)
-      }
-      // withdraw less than 20K in a single transaction
-      else if (input > MAX_INPUT) {
-        Response(
-          "error",
-          s"exceeded maximum withdrawal of USD $MAX_INPUT per transaction",
-          403)
-      }
-      // withdraw a total maximum of 50k per day
-      else if (total_withdraw_amount > MAX_WITHDRAWAL) {
-        Response(
-          "error",
-          s"exceeded maximum withdrawal of USD $MAX_WITHDRAWAL amount per day",
-          403)
-      }
-      // withdraw in a max total of 3 transactions
-      else if (total_transactions >= MAX_TRANSACTIONS) {
-        Response(
-          "error",
-          s"exceeded maximum withdrawal frequency of $MAX_TRANSACTIONS times per day",
-          403)
-      }
-      // all conditions passed
-      else {
-        val current: Double = previous_amount - input
-        val account = AccountData(current.toString, timestamp, "Withdraw")
-        // Add the transaction to transactions
-        writeTofile(account)
-        Response("OK",
-                 s"new balance after withdrawal of USD $input is USD $current",
-                 201)
-      }
+      validateTransaction(input,
+                          previous_amount,
+                          MAX_INPUT,
+                          total_withdraw_amount,
+                          MAX_WITHDRAWAL,
+                          total_transactions,
+                          MAX_TRANSACTIONS,
+                          timestamp)
+    }
+  }
+
+  // Run validations before doing a withdrawal and return approriate Reponse
+  def validateTransaction(input: Double,
+                          previous_amount: Double,
+                          max_input: Double,
+                          total_withdraw_amount: Double,
+                          max_withdrawal: Double,
+                          total_transactions: Double,
+                          max_transactions: Double,
+                          timestamp: Long): Response = {
+    // withdrawal amount should be less than current balance
+    if (input > previous_amount) {
+      Response("error", "account balance is lower than withdrawal amount", 403)
+    }
+    // withdraw less than 20K in a single transaction
+    else if (input > max_input) {
+      Response("error",
+               s"exceeded maximum withdrawal of USD $max_input per transaction",
+               403)
+    }
+    // withdraw a total maximum of 50k per day
+    else if (total_withdraw_amount > max_withdrawal) {
+      Response(
+        "error",
+        s"exceeded maximum withdrawal of USD $max_withdrawal amount per day",
+        403)
+    }
+    // withdraw in a max total of 3 transactions
+    else if (total_transactions >= max_transactions) {
+      Response(
+        "error",
+        s"exceeded maximum withdrawal frequency of $max_transactions times per day",
+        403)
+    }
+    // all conditions passed
+    else {
+      val current: Double = previous_amount - input
+      val account = AccountData(current.toString, timestamp, "Withdraw")
+      // Add the transaction to transactions
+      writeTofile(account)
+      Response("OK",
+               s"new balance after withdrawal of USD $input is USD $current",
+               201)
     }
   }
 }
