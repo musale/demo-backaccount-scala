@@ -169,7 +169,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val timestamp: Long = Instant.now.getEpochSecond
 
       // Max daily deposit is USD 150,000
-      val MAX_DEPOSIT = 150000.toDouble
+      val max_deposit = 150000.toDouble
       val todays_deposits = transactions
         .filter(_.ttype == "Deposit")
         .filter(_.timestamp <= timestamp)
@@ -177,19 +177,19 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val todays_deposits_total: Double = getTodaysTotalDeposit(todays_deposits)
 
       // Max transactions per day is 4
-      val MAX_TRANSACTIONS = 4
+      val max_transactions = 4
       val total_transactions = todays_deposits.length
       // Max input is USD 40,000
-      val MAX_INPUT = 40000.toDouble
+      val max_input = 40000.toDouble
 
       val input = amount.toDouble
 
       validateDeposit(input,
-                      MAX_INPUT,
+                      max_input,
                       todays_deposits_total,
-                      MAX_DEPOSIT,
+                      max_deposit,
                       total_transactions,
-                      MAX_TRANSACTIONS,
+                      max_transactions,
                       previous_amount,
                       timestamp)
     }
@@ -266,7 +266,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val timestamp: Long = Instant.now.getEpochSecond
       val previous_amount = getPreviousAmount(transactions: List[AccountData])
       // Max daily withdrawal is USD 50,000
-      val MAX_WITHDRAWAL = 50000.toDouble
+      val max_withdrawal = 50000.toDouble
       val todays_withdrawals: List[AccountData] = transactions
         .filter(_.ttype == "Withdraw")
         .filter(_.timestamp <= timestamp)
@@ -280,21 +280,21 @@ class AccountStoreImpl @Inject()(env: Environment)(
         getTodaysTotalWithdrawal(todays_withdrawals, last_deposit)
 
       // Max transactions per day is 3
-      val MAX_TRANSACTIONS = 3
+      val max_transactions = 3
       val total_transactions = todays_withdrawals.length
       val input = amount.toDouble
       val total_withdraw_amount = todays_withdraw_total + input
 
       // Max input is USD 20,000
-      val MAX_INPUT = 20000.toDouble
+      val max_input = 20000.toDouble
 
       validateTransaction(input,
                           previous_amount,
-                          MAX_INPUT,
+                          max_input,
                           total_withdraw_amount,
-                          MAX_WITHDRAWAL,
+                          max_withdrawal,
                           total_transactions,
-                          MAX_TRANSACTIONS,
+                          max_transactions,
                           timestamp)
     }
   }
