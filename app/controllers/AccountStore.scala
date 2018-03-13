@@ -134,9 +134,9 @@ class AccountStoreImpl @Inject()(env: Environment)(
       }
       case Failure(f) => {
         new FileOutputStream(filename, true)
-        val account_data = Source.fromFile(filename)
-        val account_list = new ListBuffer[AccountData]()
-        account_list.toList
+        val now = Instant.now.getEpochSecond
+        val initial_account = List(AccountData("0.0", now, "Deposit"))
+        initial_account
       }
     }
   }
@@ -256,6 +256,13 @@ class AccountStoreImpl @Inject()(env: Environment)(
     } else 0.0
   }
 
+  // Get the last deposit
+  def getLastDeposit(transactions: List[AccountData]): Double = {
+    if(!(transactions.isEmpty)){
+      transactions.filter(_.ttype == "Deposit").last.amount.toDouble
+    } else 0.0
+  }
+
   // Withdraw from the account
   override def withdraw(amount: AccountAmount)(
       implicit mc: MarkerContext): Future[Response] = {
@@ -273,8 +280,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
         .filter(_.timestamp >= midnightstamp)
 
       // Last deposit made
-      val last_deposit =
-        transactions.filter(_.ttype == "Deposit").last.amount.toDouble
+      val last_deposit = getLastDeposit(transactions)
 
       val todays_withdraw_total: Double =
         getTodaysTotalWithdrawal(todays_withdrawals, last_deposit)
@@ -288,26 +294,26 @@ class AccountStoreImpl @Inject()(env: Environment)(
       // Max input is USD 20,000
       val max_input = 20000.toDouble
 
-      validateTransaction(input,
-                          previous_amount,
-                          max_input,
-                          total_withdraw_amount,
-                          max_withdrawal,
-                          total_transactions,
-                          max_transactions,
-                          timestamp)
+      validateWithdrawal(input,
+                         previous_amount,
+                         max_input,
+                         total_withdraw_amount,
+                         max_withdrawal,
+                         total_transactions,
+                         max_transactions,
+                         timestamp)
     }
   }
 
   // Run validations before doing a withdrawal and return approriate Reponse
-  def validateTransaction(input: Double,
-                          previous_amount: Double,
-                          max_input: Double,
-                          total_withdraw_amount: Double,
-                          max_withdrawal: Double,
-                          total_transactions: Double,
-                          max_transactions: Double,
-                          timestamp: Long): Response = {
+  def validateWithdrawal(input: Double,
+                         previous_amount: Double,
+                         max_input: Double,
+                         total_withdraw_amount: Double,
+                         max_withdrawal: Double,
+                         total_transactions: Double,
+                         max_transactions: Double,
+                         timestamp: Long): Response = {
     // withdrawal amount should be less than current balance
     if (input > previous_amount) {
       Response("error", "account balance is lower than withdrawal amount", 403)
