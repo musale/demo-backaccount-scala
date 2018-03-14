@@ -4,4 +4,8 @@ pipelines:
   default:
     - step:
         script:
-          - sbt test
+          - export CODACY_PROJECT_TOKEN=$CODACY_PROJECT_TOKEN
+          - sbt clean coverage test
+          - sbt coverageReport
+          - sbt coverageAggregate
+          - sbt codacyCoverage
