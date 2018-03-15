@@ -117,26 +117,26 @@ class AccountStoreImpl @Inject()(env: Environment)(
   }
   def readFromFile(): List[AccountData] = {
     readFileHelper() match {
-      case Success(account_data) => {
-        var account_list = new ListBuffer[AccountData]()
-        for (line <- account_data.getLines()) {
+      case Success(accountData) => {
+        var accountList = new ListBuffer[AccountData]()
+        for (line <- accountData.getLines()) {
           Json.parse(line).validate[AccountData] match {
             case s: JsSuccess[AccountData] => {
               val acc: AccountData = s.get
-              account_list += acc
+              accountList += acc
             }
             case e: JsError => {
               logger.error("error reading from file: %s", e.get)
             }
           }
         }
-        account_list.toList
+        accountList.toList
       }
       case Failure(f) => {
         new FileOutputStream(filename, true)
         val now = Instant.now.getEpochSecond
-        val initial_account = List(AccountData("0.0", now, "Deposit"))
-        initial_account
+        val initialAccount = List(AccountData("0.0", now, "Deposit"))
+        initialAccount
       }
     }
   }
@@ -165,67 +165,67 @@ class AccountStoreImpl @Inject()(env: Environment)(
       // get the current transaction from the list
       val transactions = readFromFile()
 
-      val previous_amount = getPreviousAmount(transactions)
+      val previousAmount = getPreviousAmount(transactions)
       val timestamp: Long = Instant.now.getEpochSecond
 
       // Max daily deposit is USD 150,000
-      val max_deposit = 150000.toDouble
-      val todays_deposits = transactions
+      val maxDeposit = 150000.toDouble
+      val todaysDeposits = transactions
         .filter(_.ttype == "Deposit")
         .filter(_.timestamp <= timestamp)
         .filter(_.timestamp >= midnightstamp)
-      val todays_deposits_total: Double = getTodaysTotalDeposit(todays_deposits)
+      val todaysDepositsTotal: Double = getTodaysTotalDeposit(todaysDeposits)
 
       // Max transactions per day is 4
-      val max_transactions = 4
-      val total_transactions = todays_deposits.length
+      val maxTransactions = 4
+      val totalTransactions = todaysDeposits.length
       // Max input is USD 40,000
-      val max_input = 40000.toDouble
+      val maxInput = 40000.toDouble
 
       val input = amount.toDouble
 
       validateDeposit(input,
-                      max_input,
-                      todays_deposits_total,
-                      max_deposit,
-                      total_transactions,
-                      max_transactions,
-                      previous_amount,
+                      maxInput,
+                      todaysDepositsTotal,
+                      maxDeposit,
+                      totalTransactions,
+                      maxTransactions,
+                      previousAmount,
                       timestamp)
     }
   }
 
   // Run validations for a deposit and return appropriate Response
   def validateDeposit(input: Double,
-                      max_input: Double,
-                      todays_deposits_total: Double,
-                      max_deposit: Double,
-                      total_transactions: Double,
-                      max_transactions: Double,
-                      previous_amount: Double,
+                      maxInput: Double,
+                      todaysDepositsTotal: Double,
+                      maxDeposit: Double,
+                      totalTransactions: Double,
+                      maxTransactions: Double,
+                      previousAmount: Double,
                       timestamp: Long): Response = {
     // deposit a max of 40k per transaction
-    if (input > max_input) {
+    if (input > maxInput) {
       Response("error",
-               s"exceeded maximum deposit of USD $max_input per transaction",
+               s"exceeded maximum deposit of USD $maxInput per transaction",
                403)
     }
     // deposit a total max of 150k per day
-    else if ((todays_deposits_total + input) >= max_deposit) {
+    else if ((todaysDepositsTotal + input) >= maxDeposit) {
       Response("error",
-               s"exceeded maximum deposit amount of USD $max_deposit per day",
+               s"exceeded maximum deposit amount of USD $maxDeposit per day",
                403)
     }
     // deposit in a max of 4 transations
-    else if (total_transactions >= max_transactions) {
+    else if (totalTransactions >= maxTransactions) {
       Response(
         "error",
-        s"exceeded maximum deposit frequency of USD $max_transactions times per day",
+        s"exceeded maximum deposit frequency of USD $maxTransactions times per day",
         403)
     }
     // all conditions passed
     else {
-      val current: Double = previous_amount + input
+      val current: Double = previousAmount + input
       val account = AccountData(current.toString, timestamp, "Deposit")
       // Add the transaction to transactions
       writeTofile(account)
@@ -243,9 +243,9 @@ class AccountStoreImpl @Inject()(env: Environment)(
 
   // Get the total withdrawn today
   def getTodaysTotalWithdrawal(transactions: List[AccountData],
-                               last_deposit: Double): Double = {
+                               lastDeposit: Double): Double = {
     if (!(transactions.isEmpty)) {
-      last_deposit - transactions.last.amount.toDouble
+      lastDeposit - transactions.last.amount.toDouble
     } else 0.0
   }
 
@@ -271,76 +271,76 @@ class AccountStoreImpl @Inject()(env: Environment)(
       // get the current transaction from the list
       val transactions = readFromFile()
       val timestamp: Long = Instant.now.getEpochSecond
-      val previous_amount = getPreviousAmount(transactions: List[AccountData])
+      val previousAmount = getPreviousAmount(transactions: List[AccountData])
       // Max daily withdrawal is USD 50,000
-      val max_withdrawal = 50000.toDouble
-      val todays_withdrawals: List[AccountData] = transactions
+      val maxWithdrawal = 50000.toDouble
+      val todaysWithdrawals: List[AccountData] = transactions
         .filter(_.ttype == "Withdraw")
         .filter(_.timestamp <= timestamp)
         .filter(_.timestamp >= midnightstamp)
 
       // Last deposit made
-      val last_deposit = getLastDeposit(transactions)
+      val lastDeposit = getLastDeposit(transactions)
 
-      val todays_withdraw_total: Double =
-        getTodaysTotalWithdrawal(todays_withdrawals, last_deposit)
+      val todaysWithdrawnTotal: Double =
+        getTodaysTotalWithdrawal(todaysWithdrawals, lastDeposit)
 
       // Max transactions per day is 3
-      val max_transactions = 3
-      val total_transactions = todays_withdrawals.length
+      val maxTransactions = 3
+      val totalTransactions = todaysWithdrawals.length
       val input = amount.toDouble
-      val total_withdraw_amount = todays_withdraw_total + input
+      val todaysWithdrawnAmount = todaysWithdrawnTotal + input
 
       // Max input is USD 20,000
-      val max_input = 20000.toDouble
+      val maxInput = 20000.toDouble
 
       validateWithdrawal(input,
-                         previous_amount,
-                         max_input,
-                         total_withdraw_amount,
-                         max_withdrawal,
-                         total_transactions,
-                         max_transactions,
+                         previousAmount,
+                         maxInput,
+                         todaysWithdrawnAmount,
+                         maxWithdrawal,
+                         totalTransactions,
+                         maxTransactions,
                          timestamp)
     }
   }
 
   // Run validations before doing a withdrawal and return approriate Reponse
   def validateWithdrawal(input: Double,
-                         previous_amount: Double,
-                         max_input: Double,
-                         total_withdraw_amount: Double,
-                         max_withdrawal: Double,
-                         total_transactions: Double,
-                         max_transactions: Double,
+                         previousAmount: Double,
+                         maxInput: Double,
+                         todaysWithdrawnAmount: Double,
+                         maxWithdrawal: Double,
+                         totalTransactions: Double,
+                         maxTransactions: Double,
                          timestamp: Long): Response = {
     // withdrawal amount should be less than current balance
-    if (input > previous_amount) {
+    if (input > previousAmount) {
       Response("error", "account balance is lower than withdrawal amount", 403)
     }
     // withdraw less than 20K in a single transaction
-    else if (input > max_input) {
+    else if (input > maxInput) {
       Response("error",
-               s"exceeded maximum withdrawal of USD $max_input per transaction",
+               s"exceeded maximum withdrawal of USD $maxInput per transaction",
                403)
     }
     // withdraw a total maximum of 50k per day
-    else if (total_withdraw_amount > max_withdrawal) {
+    else if (todaysWithdrawnAmount > maxWithdrawal) {
       Response(
         "error",
-        s"exceeded maximum withdrawal of USD $max_withdrawal amount per day",
+        s"exceeded maximum withdrawal of USD $maxWithdrawal amount per day",
         403)
     }
     // withdraw in a max total of 3 transactions
-    else if (total_transactions >= max_transactions) {
+    else if (totalTransactions >= maxTransactions) {
       Response(
         "error",
-        s"exceeded maximum withdrawal frequency of $max_transactions times per day",
+        s"exceeded maximum withdrawal frequency of $maxTransactions times per day",
         403)
     }
     // all conditions passed
     else {
-      val current: Double = previous_amount - input
+      val current: Double = previousAmount - input
       val account = AccountData(current.toString, timestamp, "Withdraw")
       // Add the transaction to transactions
       writeTofile(account)
