@@ -2,7 +2,7 @@
 
 # Bank Account REST API
 
-> Simple micro web service that mimics a �Bank Account�. Through this web service, one can query the balance, deposit money, and withdraw money.
+> Simple micro web service that mimics a "Bank Account". Through this web service, one can query the balance, deposit money, and withdraw money.
 
 ## Getting Started
 
