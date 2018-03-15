@@ -1,6 +1,8 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a9e8e47913734af79f2b8874238bbf6e)](https://www.codacy.com?utm_source=git@bitbucket.org&amp;utm_medium=referral&amp;utm_content=musale/bankaccount&amp;utm_campaign=Badge_Grade)
+
 # Bank Account REST API
 
-> Simple micro web service that mimics a “Bank Account”. Through this web service, one can query the balance, deposit money, and withdraw money.
+> Simple micro web service that mimics a ï¿½Bank Accountï¿½. Through this web service, one can query the balance, deposit money, and withdraw money.
 
 ## Getting Started
 
