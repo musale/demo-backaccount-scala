@@ -22,7 +22,7 @@ class ErrorHandlerSpec extends PlaySpec with GuiceOneAppPerTest {
       val request = FakeRequest(GET, "/api/v1/doesnotexist")
         .withHeaders(HOST -> "localhost:9000")
         .withCSRFToken
-      val result = route(app, request)
+      val result = route(app, request).get
       status(result) mustEqual 404
       val resultJson: JsValue =
         contentAsJson(result)(Timeout(2, TimeUnit.SECONDS))

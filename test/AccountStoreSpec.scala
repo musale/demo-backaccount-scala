@@ -1,20 +1,17 @@
+import akka.util.Timeout
+import java.time.Instant
+import java.util.concurrent.TimeUnit
+import controllers.{AccountAmount, AccountData, Response}
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice._
 import org.scalatest.Assertions._
-
+import org.scalatest.exceptions.TestFailedException
 import play.api.test._
 import play.api.mvc._
 import play.api.libs.json._
 import play.api.test.Helpers._
 import play.api.test.CSRFTokenHelper._
-
 import scala.concurrent._
-import akka.util.Timeout
-import java.time.Instant
-import java.util.concurrent.TimeUnit
-import java.util.NoSuchElementException
-
-import controllers.{AccountAmount, AccountData, Response}
 
 class AccountStoreSpec extends PlaySpec with GuiceOneAppPerTest {
   "AccountStore" should {
@@ -37,7 +34,7 @@ class AccountStoreSpec extends PlaySpec with GuiceOneAppPerTest {
     }
 
     "throw a server error" in {
-      assertThrows[NoSuchElementException] {
+      assertThrows[TestFailedException] {
 
         val request =
           FakeRequest(POST,
