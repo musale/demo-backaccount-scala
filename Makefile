@@ -11,9 +11,9 @@ report:
 	@sbt coverageReport
 
 .PHONY: aggregate
-report:
+aggregate:
 	@sbt coverageAggregate
 
 .PHONY: codacy
-report:
+codacy:
 	@sbt codacyCoverage
