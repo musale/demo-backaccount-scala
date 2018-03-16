@@ -9,3 +9,11 @@ test:
 .PHONY: report
 report:
 	@sbt coverageReport
+
+.PHONY: aggregate
+report:
+	@sbt coverageAggregate
+
+.PHONY: codacy
+report:
+	@sbt codacyCoverage
