@@ -57,7 +57,6 @@ class AccountAmount private (val amount: String) extends AnyVal {
 
 object AccountAmount {
   def apply(raw: String): AccountAmount = {
-    require(raw != null)
     new AccountAmount(raw)
   }
 }
@@ -180,7 +179,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       // Max input is USD 40,000
       val maxInput = AccountAmount("40000").toDouble
 
-      val input = AccountAmount(amount).toDouble
+      val input = amount.toDouble
 
       validateDeposit(input,
                       maxInput,
@@ -271,7 +270,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val lastDepositTransaction = transactions
         .filter(_.ttype == "Deposit")
         .headOption
-        .getOrElse(Account("0.0", now, "Initial"))
+        .getOrElse(AccountData("0.0", now, "Initial"))
       val lastDeposit = AccountAmount(lastDepositTransaction.amount).toDouble
       lastDeposit
     } else 0.0
@@ -302,7 +301,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       // Max transactions per day is 3
       val maxTransactions = 3
       val totalTransactions = todaysWithdrawals.length
-      val input = AccountAmount(amount).toDouble
+      val input = amount.toDouble
       val todaysWithdrawnAmount = todaysWithdrawnTotal + input
 
       // Max input is USD 20,000
