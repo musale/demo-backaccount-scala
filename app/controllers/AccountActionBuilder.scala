@@ -2,7 +2,7 @@ package controllers
 
 import javax.inject.Inject
 
-import net.logstash.logback.marker.LogstashMarker
+import net.logstash.logback.marker.{Markers, LogstashMarker}
 import play.api.{Logger, MarkerContext}
 import play.api.http.{FileMimeTypes, HttpVerbs}
 import play.api.i18n.{Langs, MessagesApi}
@@ -20,8 +20,6 @@ class AccountRequest[A](request: Request[A], val messagesApi: MessagesApi)
 
 // Provides an implicit marker that will show the request in all logger statements.
 trait RequestMarkerContext {
-  import net.logstash.logback.marker.Markers
-
   private def marker(tuple: (String, Any)) = Markers.append(tuple._1, tuple._2)
 
   private implicit class RichLogstashMarker(marker1: LogstashMarker) {
@@ -92,5 +90,6 @@ class AccountBaseController @Inject()(acc: AccountControllerComponents)
 
   def AccountAction: AccountActionBuilder = acc.accountActionBuilder
 
-  def accountResourceHandler: AccountResourceHandler = acc.accountResourceHandler
+  def accountResourceHandler: AccountResourceHandler =
+    acc.accountResourceHandler
 }

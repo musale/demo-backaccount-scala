@@ -52,7 +52,7 @@ object Response {
 
 // Convert amount to double for easier calculations
 class AccountAmount private (val amount: String) extends AnyVal {
-  def toDouble: Double = amount.toDouble
+  def toDouble: Double = AccountAmount(amount).toDouble
 }
 
 object AccountAmount {
@@ -118,7 +118,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
   def readFromFile(): List[AccountData] = {
     readFileHelper() match {
       case Success(accountData) => {
-        var accountList = new ListBuffer[AccountData]()
+        val accountList = new ListBuffer[AccountData]()
         for (line <- accountData.getLines()) {
           Json.parse(line).validate[AccountData] match {
             case s: JsSuccess[AccountData] => {
@@ -146,14 +146,12 @@ class AccountStoreImpl @Inject()(env: Environment)(
     Future {
       logger.trace(s"balance")
       // get the current transaction from the list
-      val account = readFromFile()
-      if (!(account.isEmpty)) {
-        val balance = account.last.amount
-        Response("OK", s"account balance is USD $balance", 200)
-      } else {
-        // No deposit has been made
-        Response("OK", "account balance is USD 0", 200)
-      }
+      val account: List[AccountData] = readFromFile()
+      val now: Long = Instant.now.getEpochSecond
+      val transaction: AccountData =
+        account.headOption.getOrElse(AccountData("0.0", now, "Initial"))
+      val balance: String = transaction.amount
+      Response("OK", s"account balance is USD $balance", 200)
     }
   }
 
@@ -169,7 +167,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val timestamp: Long = Instant.now.getEpochSecond
 
       // Max daily deposit is USD 150,000
-      val maxDeposit = 150000.toDouble
+      val maxDeposit = AccountAmount("150000").toDouble
       val todaysDeposits = transactions
         .filter(_.ttype == "Deposit")
         .filter(_.timestamp <= timestamp)
@@ -180,9 +178,9 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val maxTransactions = 4
       val totalTransactions = todaysDeposits.length
       // Max input is USD 40,000
-      val maxInput = 40000.toDouble
+      val maxInput = AccountAmount("40000").toDouble
 
-      val input = amount.toDouble
+      val input = AccountAmount(amount).toDouble
 
       validateDeposit(input,
                       maxInput,
@@ -236,7 +234,9 @@ class AccountStoreImpl @Inject()(env: Environment)(
   // Get previous transactions amount
   def getPreviousAmount(transactions: List[AccountData]): Double = {
     if (!(transactions.isEmpty)) {
-      val previous: AccountData = transactions.last
+      val now = Instant.now.getEpochSecond
+      val previous: AccountData =
+        transactions.headOption.getOrElse(AccountData("0.0", now, "Initial"))
       AccountAmount(previous.amount).toDouble
     } else 0.0
   }
@@ -245,21 +245,35 @@ class AccountStoreImpl @Inject()(env: Environment)(
   def getTodaysTotalWithdrawal(transactions: List[AccountData],
                                lastDeposit: Double): Double = {
     if (!(transactions.isEmpty)) {
-      lastDeposit - transactions.last.amount.toDouble
+      val now = Instant.now.getEpochSecond
+      val lastTransaction =
+        transactions.headOption.getOrElse(AccountData("0.0", now, "Initial"))
+      val lastBalance = AccountAmount(lastTransaction.amount).toDouble
+      lastDeposit - lastBalance
     } else 0.0
   }
 
   // Get the total deposited today
   def getTodaysTotalDeposit(transactions: List[AccountData]): Double = {
     if (!(transactions.isEmpty)) {
-      transactions.last.amount.toDouble
+      val now = Instant.now.getEpochSecond
+      val lastTransaction =
+        transactions.headOption.getOrElse(AccountData("0.0", now, "Initial"))
+      val lastBalance = AccountAmount(lastTransaction.amount).toDouble
+      lastBalance
     } else 0.0
   }
 
   // Get the last deposit
   def getLastDeposit(transactions: List[AccountData]): Double = {
-    if(!(transactions.isEmpty)){
-      transactions.filter(_.ttype == "Deposit").last.amount.toDouble
+    if (!(transactions.isEmpty)) {
+      val now = Instant.now.getEpochSecond
+      val lastDepositTransaction = transactions
+        .filter(_.ttype == "Deposit")
+        .headOption
+        .getOrElse(Account("0.0", now, "Initial"))
+      val lastDeposit = AccountAmount(lastDepositTransaction.amount).toDouble
+      lastDeposit
     } else 0.0
   }
 
@@ -273,7 +287,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val timestamp: Long = Instant.now.getEpochSecond
       val previousAmount = getPreviousAmount(transactions: List[AccountData])
       // Max daily withdrawal is USD 50,000
-      val maxWithdrawal = 50000.toDouble
+      val maxWithdrawal = AccountAmount("50000").toDouble
       val todaysWithdrawals: List[AccountData] = transactions
         .filter(_.ttype == "Withdraw")
         .filter(_.timestamp <= timestamp)
@@ -288,11 +302,11 @@ class AccountStoreImpl @Inject()(env: Environment)(
       // Max transactions per day is 3
       val maxTransactions = 3
       val totalTransactions = todaysWithdrawals.length
-      val input = amount.toDouble
+      val input = AccountAmount(amount).toDouble
       val todaysWithdrawnAmount = todaysWithdrawnTotal + input
 
       // Max input is USD 20,000
-      val maxInput = 20000.toDouble
+      val maxInput = AccountAmount("20000").toDouble
 
       validateWithdrawal(input,
                          previousAmount,
