@@ -245,15 +245,18 @@ class AccountStoreImpl @Inject()(env: Environment)(
       AccountAmount(previous.amount).toDouble
     } else 0.0
   }
-
+  def getLastBalance(transactions: List[AccountData]): Double = {
+    val now = Instant.now.getEpochSecond
+    val lastTransaction =
+      transactions.lastOption.getOrElse(AccountData("0.0", now, "Initial"))
+    val lastBalance = AccountAmount(lastTransaction.amount).toDouble
+    lastBalance
+  }
   // Get the total withdrawn today
   def getTodaysTotalWithdrawal(transactions: List[AccountData],
                                lastDeposit: Double): Double = {
     if (!(transactions.isEmpty)) {
-      val now = Instant.now.getEpochSecond
-      val lastTransaction =
-        transactions.lastOption.getOrElse(AccountData("0.0", now, "Initial"))
-      val lastBalance = AccountAmount(lastTransaction.amount).toDouble
+      val lastBalance = getLastBalance(transactions)
       lastDeposit - lastBalance
     } else 0.0
   }
@@ -261,10 +264,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
   // Get the total deposited today
   def getTodaysTotalDeposit(transactions: List[AccountData]): Double = {
     if (!(transactions.isEmpty)) {
-      val now = Instant.now.getEpochSecond
-      val lastTransaction =
-        transactions.lastOption.getOrElse(AccountData("0.0", now, "Initial"))
-      val lastBalance = AccountAmount(lastTransaction.amount).toDouble
+      val lastBalance = getLastBalance(transactions)
       lastBalance
     } else 0.0
   }
