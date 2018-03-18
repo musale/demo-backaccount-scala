@@ -52,7 +52,13 @@ object Response {
 
 // Convert amount to double for easier calculations
 class AccountAmount private (val amount: String) extends AnyVal {
-  def toDouble: Double = AccountAmount(amount).toDouble
+  def parseToDouble(str: String): Try[Double] = Try(str.toDouble)
+  def toDouble: Double = {
+    parseToDouble(amount) match {
+      case Success(amount) => amount
+      case Failure(f)      => throw new Error(s"amount $amount should be a Number")
+    }
+  }
 }
 
 object AccountAmount {
@@ -148,7 +154,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val account: List[AccountData] = readFromFile()
       val now: Long = Instant.now.getEpochSecond
       val transaction: AccountData =
-        account.headOption.getOrElse(AccountData("0.0", now, "Initial"))
+        account.lastOption.getOrElse(AccountData("0.0", now, "Initial"))
       val balance: String = transaction.amount
       Response("OK", s"account balance is USD $balance", 200)
     }
@@ -235,7 +241,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
     if (!(transactions.isEmpty)) {
       val now = Instant.now.getEpochSecond
       val previous: AccountData =
-        transactions.headOption.getOrElse(AccountData("0.0", now, "Initial"))
+        transactions.lastOption.getOrElse(AccountData("0.0", now, "Initial"))
       AccountAmount(previous.amount).toDouble
     } else 0.0
   }
@@ -246,7 +252,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
     if (!(transactions.isEmpty)) {
       val now = Instant.now.getEpochSecond
       val lastTransaction =
-        transactions.headOption.getOrElse(AccountData("0.0", now, "Initial"))
+        transactions.lastOption.getOrElse(AccountData("0.0", now, "Initial"))
       val lastBalance = AccountAmount(lastTransaction.amount).toDouble
       lastDeposit - lastBalance
     } else 0.0
@@ -257,7 +263,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
     if (!(transactions.isEmpty)) {
       val now = Instant.now.getEpochSecond
       val lastTransaction =
-        transactions.headOption.getOrElse(AccountData("0.0", now, "Initial"))
+        transactions.lastOption.getOrElse(AccountData("0.0", now, "Initial"))
       val lastBalance = AccountAmount(lastTransaction.amount).toDouble
       lastBalance
     } else 0.0
@@ -269,7 +275,7 @@ class AccountStoreImpl @Inject()(env: Environment)(
       val now = Instant.now.getEpochSecond
       val lastDepositTransaction = transactions
         .filter(_.ttype == "Deposit")
-        .headOption
+        .lastOption
         .getOrElse(AccountData("0.0", now, "Initial"))
       val lastDeposit = AccountAmount(lastDepositTransaction.amount).toDouble
       lastDeposit
