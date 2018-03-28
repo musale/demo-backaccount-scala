@@ -1,6 +1,7 @@
 import akka.util.Timeout
 import java.time.Instant
 import java.util.concurrent.TimeUnit
+import java.lang.Error
 import controllers.{AccountAmount, AccountData, Response}
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice._
@@ -31,6 +32,13 @@ class AccountStoreSpec extends PlaySpec with GuiceOneAppPerTest {
       response.code mustEqual 200
       val resultJson: JsValue = Json.toJson(response)
       resultJson.toString mustEqual """{"status":"OK","message":"Success","code":200}"""
+    }
+
+    "not parse a value that is not a Number" in {
+      assertThrows[Error] {
+        val amount = AccountAmount("9oo")
+        amount.toDouble
+      }
     }
 
     "throw a server error" in {

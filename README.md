@@ -1,4 +1,6 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a9e8e47913734af79f2b8874238bbf6e)](https://www.codacy.com?utm_source=git@bitbucket.org&amp;utm_medium=referral&amp;utm_content=musale/bankaccount&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dbd5d132d4814f56ba42e34ce7e23e64)](https://www.codacy.com/app/musale/demo-backaccount-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=musale/demo-backaccount-scala&amp;utm_campaign=Badge_Grade)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/dbd5d132d4814f56ba42e34ce7e23e64)](https://www.codacy.com/app/musale/demo-backaccount-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=musale/demo-backaccount-scala&amp;utm_campaign=Badge_Coverage)
 
 # Bank Account REST API
 
